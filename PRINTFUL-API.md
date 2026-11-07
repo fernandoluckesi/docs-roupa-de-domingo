@@ -52,6 +52,27 @@ Painel do produto: https://www.printful.com/dashboard/product-templates/publishe
 | XGG     | `6aea4518912a67`             | `12808`                 |
 
 Guarde o `external_variant_id` em `ProductVariant.printProviderVariantId` (já existe no schema).
+
+### Catálogo completo (04/11/2026)
+
+Além da camiseta original, 18 produtos foram criados por API (`backend/scripts/printful/`). Em cada sync
+product, `external_id` = slug do produto. Em cada sync variant, `external_id` = SKU da loja
+(ex.: `CAM-SORRIA-PT-M`), por isso `printProviderVariantId` = SKU em `prisma/catalog.ts`.
+
+| Categoria | Produtos | Base Printful (catálogo) | Variantes | Produção | Custo | Venda |
+| --------- | -------- | ------------------------ | --------- | -------- | ----- | ----- |
+| Camisetas | 6 (inclui a secreta) | 509 Dimona, DTG frente | Branca e Preta, P–XGG | **Brasil**, 9–10 dias | R$ 53,95 | R$ 89,90 (secreta R$ 119,90) |
+| Moletons | 2 | 146 Gildan 18500, DTG frente | Preto e Marinho, P–XGG | Brasil quando há estoque, senão exterior | R$ 119,95 | R$ 219,90 |
+| Canecas | 4 | 19 White Glossy Mug 11 oz | 325 ml | **Brasil**, 9–10 dias | R$ 44,95 | R$ 69,90 |
+| Capas | 4 | 181 Clear Case iPhone + 267 Clear Case Samsung | iPhone 13–17 e Galaxy S23–S25 | Exterior, 10–25 dias | R$ 52,45–60,95 | R$ 99,90 |
+| Garrafas | 2 | 382 Stainless Steel Water Bottle 17 oz | Branca e Preta | Exterior, 10–15 dias | R$ 132,95 | R$ 219,90 |
+
+- Artes: PNG transparente gerado por `render.js`, publicado em `https://<front>/designs/`.
+- Fotos do site: mockups do mockup generator da Printful, em `frontend/public/products/`.
+- Capas e garrafas vêm de fora do Brasil: o prazo é maior e o cliente **pode pagar imposto de
+  importação** na entrega (regras dos Correios / Receita para remessas internacionais).
+- Em produção, o catálogo é aplicado por `npm run catalog:sync` a cada deploy (upsert por slug/SKU;
+  variantes antigas ficam indisponíveis, pedidos não são apagados).
 O `sync_variant_id` numérico também serve e pode ser obtido com `GET /store/products/488823609`.
 
 > Existe também uma loja "Personal orders" (`19007165`) criada automaticamente pela Printful.
@@ -73,6 +94,7 @@ PRINT_PROVIDER=printful
 PRINT_API_URL=https://api.printful.com
 PRINT_API_KEY=<token privado>
 PRINTFUL_STORE_ID=19007611
+PRINTFUL_CONFIRM_ORDERS=false   # true = confirma e cobra
 PRINT_WEBHOOK_SECRET=<string aleatória longa>
 ```
 
@@ -250,131 +272,85 @@ Para consultar ou remover: `GET /webhooks` e `DELETE /webhooks`.
 
 ---
 
-## 6. Driver para o backend (`PrintfulPrintProvider`)
+## 6. Integração no backend (implementada)
 
-Rascunho pronto para `src/modules/fulfillment/providers/printful-print.provider.ts`. Ele implementa
-a interface atual sem mudar o domínio. Depois, registre `printful` na factory do `FulfillmentModule`
-e exponha `print.storeId` (env `PRINTFUL_STORE_ID`) no config.
+| Peça | Onde |
+| ---- | ---- |
+| Driver | `src/modules/fulfillment/providers/printful-print.provider.ts` |
+| Seleção do driver | `FulfillmentModule`: `PRINT_PROVIDER=printful` + `PRINT_API_KEY` (sem token, cai no mock) |
+| Config | `print.printful.storeId` / `print.printful.confirmOrders` (`configuration.ts`) |
+| Webhook | `POST /api/fulfillment/webhook/printful?secret=<PRINT_WEBHOOK_SECRET>` |
+| Reenvio manual | `POST /api/fulfillment/:orderNumber/dispatch` (admin; só pedidos `PAID`) |
+| Produto no seed | `camiseta-roupa-de-domingo` ("Roupa de Domingo (a original)"), branca P–XGG, com os `external_variant_id` da seção 2 |
 
-```ts
-import { Injectable, InternalServerErrorException, Logger } from "@nestjs/common";
-import { ConfigService } from "@nestjs/config";
-import axios, { AxiosInstance } from "axios";
-import {
-  CreatePrintOrderInput,
-  PrintOrderResult,
-  PrintOrderStatus,
-  PrintProvider,
-} from "./print-provider.interface";
+Comportamento:
 
-const STATUS_MAP: Record<string, PrintOrderStatus> = {
-  draft: "QUEUED",
-  pending: "QUEUED",
-  onhold: "QUEUED",
-  inprocess: "IN_PRODUCTION",
-  partial: "IN_PRODUCTION",
-  fulfilled: "SHIPPED",
-  failed: "ERROR",
-  canceled: "ERROR",
-};
+- Pagamento aprovado → `dispatchOrder` → `POST /orders` na Printful, referenciando a sync variant
+  (`external_variant_id`). A arte já está na Printful; nada de arquivo é enviado.
+- `PRINTFUL_CONFIRM_ORDERS=false` (padrão): o pedido fica **em rascunho** na Printful. Localmente o
+  pedido continua `PAID`, o `Fulfillment` fica `SENT` com o id da Printful, e a timeline ganha a nota
+  "Rascunho criado na estamparia". Nada é cobrado.
+- `PRINTFUL_CONFIRM_ORDERS=true`: cria com `?confirm=true` (cobra e produz). O pedido vai para `IN_PRODUCTION`.
+- `economico` e `expresso` viram `STANDARD`: é o único método da Printful para o Brasil.
+- CPF/CNPJ vai **com máscara** (`000.000.000-00` / `00.000.000/0000-00`). Sem máscara a Printful
+  responde `400 CPF number must match a pattern`.
+- Item sem `printProviderVariantId` faz o envio falhar com `Itens sem variante Printful: <skus>` em
+  `Fulfillment.lastError`. Desde 04/11/2026 todos os produtos do catálogo existem na Printful (seção 2).
+- O campo "texto personalizado" da página de produto **não** chega à Printful: a sync variant tem arte fixa.
 
-@Injectable()
-export class PrintfulPrintProvider implements PrintProvider {
-  readonly name = "printful";
-  private readonly logger = new Logger(PrintfulPrintProvider.name);
-  private readonly client: AxiosInstance;
-  private readonly autoConfirm: boolean;
+### Frete real no carrinho e no checkout
 
-  constructor(config: ConfigService) {
-    this.client = axios.create({
-      baseURL: config.get<string>("print.apiUrl") || "https://api.printful.com",
-      timeout: 20000,
-      headers: {
-        Authorization: `Bearer ${config.get<string>("print.apiKey")}`,
-        "X-PF-Store-Id": config.get<string>("print.storeId") ?? "",
-        "Content-Type": "application/json",
-      },
-    });
-    // Em dev, deixe false: o pedido fica em draft e nada é cobrado
-    this.autoConfirm = config.get<string>("NODE_ENV") === "production";
-  }
+`ShippingService` (`src/modules/shipping/shipping.service.ts`) cota o frete na Printful
+(`POST /shipping/rates`, `currency: BRL`) sempre que o carrinho recebe um CEP (`GET /api/cart?zipCode=`).
 
-  async createOrder(input: CreatePrintOrderInput): Promise<PrintOrderResult> {
-    const r = input.recipient;
-    const body = {
-      external_id: input.externalId,
-      shipping: input.shippingMethod || "STANDARD",
-      recipient: {
-        name: r.name,
-        address1: `${r.street}, ${r.number}`,
-        address2: [r.complement, r.district].filter(Boolean).join(" - ") || undefined,
-        city: r.city,
-        state_code: r.state,
-        country_code: "BR",
-        zip: r.zipCode,
-        phone: r.phone ?? undefined,
-        tax_number: (r.document ?? "").replace(/\D/g, ""),
-      },
-      items: input.items.map((item) => ({
-        external_variant_id: item.providerVariantId ?? item.sku,
-        quantity: item.quantity,
-      })),
-    };
+- A UF vem do CEP, por faixa dos Correios (`stateFromZipCode`), porque a Printful exige `state_code`.
+- Só entram na cotação os itens com `printProviderVariantId` (`external_variant_id`).
+- O resultado tem preço em centavos, `minDays`/`maxDays` e `estimatedDeliveryDate`. O front mostra
+  "9 a 10 dias · chega até 16/11". `source: "printful"` indica cotação real.
+- O checkout usa a mesma cotação dos totais do carrinho e grava `estimatedDays = maxDays` no pedido.
+- Cache em memória de 10 minutos por CEP + itens, timeout de 8 s.
+- **Fallback:** sem token, carrinho sem itens Printful, ou erro/timeout da API, o serviço usa a tabela
+  local por região (log `Cotacao Printful falhou ... Usando tabela local`). O carrinho nunca quebra por
+  causa da Printful.
+- O frete grátis acima de `FREE_SHIPPING_THRESHOLD_CENTS` (R$ 249) continua valendo: a loja absorve o custo real.
+- No Brasil só existe `STANDARD`, então aparece uma opção só. Se a Printful liberar `EXPRESS`, ele vira `expresso`.
 
-    try {
-      const { data } = await this.client.post(
-        `/orders${this.autoConfirm ? "?confirm=true" : ""}`,
-        body,
-      );
-      return this.toResult(data.result);
-    } catch (error) {
-      const detail = axios.isAxiosError(error)
-        ? JSON.stringify(error.response?.data?.error ?? error.message)
-        : (error as Error).message;
-      this.logger.error(`Printful recusou o pedido ${input.externalId}: ${detail}`);
-      throw new InternalServerErrorException(
-        "A estamparia nao respondeu. O pedido fica na fila para reenvio.",
-      );
-    }
-  }
+Cotações de 04/11/2026: SP, 1 camiseta: R$ 68,69 (9 a 10 dias); RJ, 2 camisetas: R$ 101,69.
 
-  async getOrder(providerOrderId: string): Promise<PrintOrderResult> {
-    const { data } = await this.client.get(`/orders/${providerOrderId}`);
-    return this.toResult(data.result);
-  }
+Docker: o backend recebe `NODE_EXTRA_CA_CERTS=/certs/corporate-ca.pem` (bundle de `scripts/export-corporate-ca.ps1`)
+para conseguir chamar a Printful e o Mercado Pago atrás do proxy corporativo.
 
-  async cancelOrder(providerOrderId: string): Promise<void> {
-    await this.client.delete(`/orders/${providerOrderId}`);
-  }
+## 7. Testes realizados (03/11/2026)
 
-  private toResult(order: any): PrintOrderResult {
-    const shipment = order.shipments?.[0];
-    return {
-      providerOrderId: String(order.id),
-      status: STATUS_MAP[order.status] ?? "QUEUED",
-      trackingCode: shipment?.tracking_number ?? null,
-      trackingUrl: shipment?.tracking_url ?? null,
-      raw: order,
-    };
-  }
-}
+| Teste | Resultado |
+| ----- | --------- |
+| Token (`GET /stores`) | 200, escopo da loja Roupa de Domingo |
+| API → pedido RD-5LQFYX | Rascunho Printful **#184580582**, 1× M, arte `default` + `preview` |
+| Front (localhost:5273) → checkout → pagamento simulado → pedido RD-93N68M | Rascunho Printful **#184581183** |
+| `scripts/smoke-test.sh` | 30/30 (cria um rascunho a cada execução) |
+| Webhook com segredo errado / pedido inexistente | 401 / `matched:false` |
+
+Os rascunhos ficam em https://www.printful.com/dashboard/default/orders. Para apagar: `DELETE /orders/{id}`.
+
+**Margem:** um pedido de teste custou **R$ 122,64** na Printful (R$ 53,95 da peça + R$ 68,69 de frete fixo),
+mas o cliente pagou R$ 104,80 (R$ 89,90 + R$ 14,90 da tabela local). Com a tabela de frete atual, cada
+camiseta dava prejuízo. Desde 04/11/2026 o cliente paga o frete real da Printful (seção 6). Acima de
+R$ 249 o frete grátis ainda sai do bolso da loja (≈ R$ 100 para 3 camisetas): revise o limite.
+
+### Como repetir
+
+```bash
+cd refs/RD
+# .env na raiz: PRINT_PROVIDER=printful, PRINT_API_KEY, PRINTFUL_STORE_ID, PRINTFUL_CONFIRM_ORDERS=false
+docker compose up -d --build
+bash scripts/smoke-test.sh
 ```
 
-Pontos de atenção:
+Pelo front: abra http://localhost:5273/produto/camiseta-roupa-de-domingo, compre e aprove na tela de
+pagamento simulado. O rascunho aparece no painel da Printful em segundos.
 
-- `quoteShipping` do contrato documentado ainda não está na interface real. Quando entrar, use `POST /shipping/rates` (seção 4.1).
-- O webhook atual valida `x-print-signature`. Para o Printful, crie a rota
-  `/fulfillment/webhook/printful` validando `?secret=`, como explicado na seção 5.
-- Seed: preencha `printProviderVariantId` das variantes P/M/G/GG/XGG com os `external_variant_id` da tabela 2.
-
----
-
-## 7. Teste rápido (sem cobrança)
-
-1. Crie o token (seção 3) e exporte `PRINT_API_KEY`.
-2. Rode o `curl` da seção 4.2. Ele deve responder `status: "draft"` e mostrar `costs`.
-3. Confira em https://www.printful.com/dashboard/default/orders: o pedido aparece como *Draft*.
-4. Apague o rascunho com `DELETE /orders/{id}`. Só use `/confirm` quando quiser um pedido real (é cobrado).
+Mudanças em `src/` não recarregam sozinhas no Docker do Windows: rode `docker compose restart backend`
+(o seed recria o banco a cada start).
 
 ## Referências
 

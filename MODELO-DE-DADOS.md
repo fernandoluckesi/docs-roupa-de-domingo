@@ -49,7 +49,7 @@ Order n─0 Coupon
 | slug                 | string unique                                                           | URL                           |
 | name                 | string                                                                  |                               |
 | description          | text                                                                    |                               |
-| humor                | enum ACIDO \| SARCASTICO \| EXISTENCIAL \| ABSURDO \| PASSIVO_AGRESSIVO | eixo editorial                |
+| humor                | enum ACIDO \| SARCASTICO \| EXISTENCIAL \| ABSURDO \| PASSIVO_AGRESSIVO \| MEMES | eixo editorial                |
 | basePriceCents       | int                                                                     | preço em centavos             |
 | categoryId           | fk                                                                      |                               |
 | tags                 | string[]                                                                | busca                         |

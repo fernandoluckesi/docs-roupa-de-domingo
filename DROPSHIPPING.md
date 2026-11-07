@@ -51,7 +51,7 @@ interface PrintOrderResult {
 }
 ```
 
-Drivers são escolhidos por `PRINT_PROVIDER` (`mock` por padrão).
+Drivers são escolhidos por `PRINT_PROVIDER`: `mock` (padrão), `printful` (real, ver [PRINTFUL-API.md](PRINTFUL-API.md)) ou `http` (genérico).
 
 ## Driver mock
 

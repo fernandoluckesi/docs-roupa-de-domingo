@@ -1,0 +1,1332 @@
+<!doctype html>
+<html dir="auto" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>02-dominios-dns-email</title>
+    <style>@font-face{font-display:block;font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"),url(fonts/KaTeX_AMS-Regular.woff) format("woff"),url(fonts/KaTeX_AMS-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Bold.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Regular.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Fraktur-Bold.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Bold.woff) format("woff"),url(fonts/KaTeX_Fraktur-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Fraktur-Regular.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Regular.woff) format("woff"),url(fonts/KaTeX_Fraktur-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Main-Bold.woff2) format("woff2"),url(fonts/KaTeX_Main-Bold.woff) format("woff"),url(fonts/KaTeX_Main-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Main-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Main-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Main-BoldItalic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Main-Italic.woff2) format("woff2"),url(fonts/KaTeX_Main-Italic.woff) format("woff"),url(fonts/KaTeX_Main-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Main-Regular.woff2) format("woff2"),url(fonts/KaTeX_Main-Regular.woff) format("woff"),url(fonts/KaTeX_Main-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Math-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Math-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Math-BoldItalic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Math-Italic.woff2) format("woff2"),url(fonts/KaTeX_Math-Italic.woff) format("woff"),url(fonts/KaTeX_Math-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url(fonts/KaTeX_SansSerif-Bold.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Bold.woff) format("woff"),url(fonts/KaTeX_SansSerif-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url(fonts/KaTeX_SansSerif-Italic.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Italic.woff) format("woff"),url(fonts/KaTeX_SansSerif-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url(fonts/KaTeX_SansSerif-Regular.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Regular.woff) format("woff"),url(fonts/KaTeX_SansSerif-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Script-Regular.woff2) format("woff2"),url(fonts/KaTeX_Script-Regular.woff) format("woff"),url(fonts/KaTeX_Script-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size1-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size1-Regular.woff) format("woff"),url(fonts/KaTeX_Size1-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size2-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size2-Regular.woff) format("woff"),url(fonts/KaTeX_Size2-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size3-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size3-Regular.woff) format("woff"),url(fonts/KaTeX_Size3-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size4-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size4-Regular.woff) format("woff"),url(fonts/KaTeX_Size4-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Typewriter-Regular.woff2) format("woff2"),url(fonts/KaTeX_Typewriter-Regular.woff) format("woff"),url(fonts/KaTeX_Typewriter-Regular.ttf) format("truetype")}.katex{font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0;text-rendering:auto}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.16.38"}.katex .katex-mathml{clip:rect(1px,1px,1px,1px);border:0;height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathboldfrak,.katex .textboldfrak{font-family:KaTeX_Fraktur;font-weight:700}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .mathsfit,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .smash{display:inline;line-height:0}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.2777777778em;margin-right:-.5555555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.1666666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.6666666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.4566666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.1466666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.7142857143em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.8571428571em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.1428571429em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.2857142857em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.4285714286em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.7142857143em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.0571428571em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.4685714286em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.9628571429em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.5542857143em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.7777777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.8888888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.1111111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.3044444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.7644444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.5833333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.7283333333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.0733333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.4861111111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.4402777778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.7277777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.2893518519em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.4050925926em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.462962963em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.5208333333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.2002314815em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.4398148148em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.2410800386em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.2892960463em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.337512054em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.3857280617em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.4339440694em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.4821600771em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.5785920926em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.6943105111em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.8331726133em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.1996142719em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.2009646302em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.2411575563em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.2813504823em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.3215434084em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.3617363344em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.4019292605em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.4823151125em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.578778135em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.6945337621em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.8336012862em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex svg{fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+
+.mdedit-review-annotation {
+  border-radius: 0.2em;
+  padding: 0 0.08em;
+  transition: background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.mdedit-review-annotation--interactive { cursor: pointer; }
+
+.mdedit-review-annotation:focus-visible {
+  outline: 2px solid rgb(var(--md-primary, 5 150 105) / 0.75);
+  outline-offset: 2px;
+}
+
+.mdedit-review-annotation--comment,
+.mdedit-review-annotation--highlight {
+  background: rgba(245, 158, 11, 0.14);
+  box-shadow: inset 0 -2px 0 rgba(217, 119, 6, 0.45);
+}
+
+.mdedit-review-annotation--suggestion {
+  background: rgba(59, 130, 246, 0.12);
+  box-shadow: inset 0 -2px 0 rgba(37, 99, 235, 0.38);
+}
+
+.mdedit-review-annotation--selected {
+  background: rgba(5, 150, 105, 0.18);
+  box-shadow: inset 0 -3px 0 rgba(5, 150, 105, 0.72);
+}
+
+.mdedit-review-annotation--block {
+  display: inline-grid;
+  width: 0.72rem;
+  height: 0.72rem;
+  margin-inline-end: 0.35rem;
+  padding: 0;
+  place-items: center;
+  color: rgba(217, 119, 6, 0.88);
+  font-size: 0.58rem;
+  line-height: 1;
+  vertical-align: 0.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mdedit-review-annotation { transition: none; }
+}
+
+.jffJNApKDpVsnf6wbKxs{height:100%;overflow:auto;background:var(--wt-preview-container-background, rgb(var(--md-background, 255 255 255)/1));background-image:var(--wt-preview-container-background-image, none)}.XmLTOFZxERaaEJK6Yyir{padding:24px}.iINwXkbDPJM6a1MLDdue{max-width:8.5in;margin:0 auto;padding:.5in;border-radius:10px;box-shadow:0 6px 28px rgba(0,0,0,.08)}@media print{.jffJNApKDpVsnf6wbKxs{height:auto;overflow:visible;background:#fff !important}.XmLTOFZxERaaEJK6Yyir{padding:0 !important}.iINwXkbDPJM6a1MLDdue{max-width:none !important;margin:0 !important;padding:0 !important;border-radius:0 !important;box-shadow:none !important}}
+.mdedit-review-popover {
+  position: fixed;
+  z-index: 1400;
+  overflow: visible;
+  border: 1px solid rgb(var(--md-border, 228 228 231) / 1);
+  border-radius: 14px;
+  background: rgb(var(--md-background, 255 255 255) / 1);
+  color: rgb(var(--md-foreground, 24 24 27) / 1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+}
+
+.mdedit-review-popover button,
+.mdedit-review-popover input { font: inherit; }
+.mdedit-review-popover button { cursor: pointer; }
+
+.mdedit-review-popover__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 12px 8px;
+}
+
+.mdedit-review-popover__avatar {
+  display: grid;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 999px;
+  background: rgb(var(--md-muted, 244 244 245) / 1);
+  color: rgb(var(--md-muted-foreground, 82 82 91) / 1);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.mdedit-review-popover__avatar.small { width: 24px; height: 24px; font-size: 9px; }
+
+.mdedit-review-popover__identity { display: flex; min-width: 0; flex: 1; flex-wrap: wrap; align-items: center; gap: 4px; }
+.mdedit-review-popover__identity strong { overflow: hidden; max-width: 120px; text-overflow: ellipsis; white-space: nowrap; }
+.mdedit-review-popover__identity em { border-radius: 999px; background: rgba(139, 92, 246, 0.11); padding: 2px 6px; color: #7c3aed; font-size: 9px; font-style: normal; font-weight: 750; text-transform: uppercase; }
+.mdedit-review-popover__identity small { width: 100%; color: rgb(var(--md-muted-foreground, 113 113 122) / 1); font-size: 10px; }
+
+.mdedit-review-popover__actions { display: flex; align-items: center; gap: 2px; }
+.mdedit-review-popover__actions > button,
+.mdedit-review-popover__more > button {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: rgb(var(--md-muted-foreground, 82 82 91) / 1);
+  font-size: 16px;
+}
+.mdedit-review-popover__actions button:hover { background: rgb(var(--md-muted, 244 244 245) / 1); color: inherit; }
+.mdedit-review-popover__more { position: relative; }
+.mdedit-review-popover__menu { position: absolute; top: 31px; right: 0; z-index: 2; display: grid; min-width: 132px; padding: 5px; border: 1px solid rgb(var(--md-border, 228 228 231) / 1); border-radius: 9px; background: rgb(var(--md-background, 255 255 255) / 1); box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+.mdedit-review-popover__menu button { border: 0; border-radius: 6px; background: transparent; padding: 7px 9px; color: inherit; text-align: left; }
+.mdedit-review-popover__menu button:hover { background: rgb(var(--md-muted, 244 244 245) / 1); }
+.mdedit-review-popover__menu .danger { color: #dc2626; }
+
+.mdedit-review-popover__body { padding: 2px 12px 12px; }
+.mdedit-review-popover__body p { margin: 0; line-height: 1.55; }
+.mdedit-review-popover__diff { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px !important; }
+.mdedit-review-popover__diff del { color: #b91c1c; }
+.mdedit-review-popover__diff ins { color: #047857; font-weight: 650; text-decoration: none; }
+.mdedit-review-popover__secondary { margin-top: 7px; border: 0; background: transparent; padding: 0; color: rgb(var(--md-muted-foreground, 82 82 91) / 1); font-size: 11px; }
+.mdedit-review-popover__diagnostic { margin-top: 6px !important; color: #b45309; font-size: 11px; }
+
+.mdedit-review-popover__replies { display: grid; gap: 10px; border-top: 1px solid rgb(var(--md-border, 228 228 231) / 1); padding: 10px 12px; }
+.mdedit-review-popover__reply { display: flex; align-items: flex-start; gap: 8px; }
+.mdedit-review-popover__reply > span:nth-child(2) { min-width: 0; flex: 1; }
+.mdedit-review-popover__reply strong { margin-right: 6px; font-size: 11px; }
+.mdedit-review-popover__reply small { color: rgb(var(--md-muted-foreground, 113 113 122) / 1); font-size: 9px; }
+.mdedit-review-popover__reply p { margin: 2px 0 0; line-height: 1.45; }
+.mdedit-review-popover__reply > button { border: 0; background: transparent; color: rgb(var(--md-muted-foreground, 113 113 122) / 1); font-size: 9px; }
+
+.mdedit-review-popover__composer { display: flex; align-items: center; gap: 6px; border-top: 1px solid rgb(var(--md-border, 228 228 231) / 1); padding: 9px 12px; }
+.mdedit-review-popover__composer input { min-width: 0; flex: 1; border: 1px solid rgb(var(--md-border, 228 228 231) / 1); border-radius: 999px; background: transparent; padding: 7px 10px; color: inherit; outline: none; }
+.mdedit-review-popover__composer input:focus { border-color: rgb(var(--md-primary, 5 150 105) / .55); box-shadow: 0 0 0 2px rgb(var(--md-primary, 5 150 105) / .12); }
+.mdedit-review-popover__composer button { border: 0; background: transparent; color: rgb(var(--md-primary, 5 150 105) / 1); }
+.mdedit-review-popover__closed { margin: 0; border-top: 1px solid rgb(var(--md-border, 228 228 231) / 1); padding: 9px 12px; color: rgb(var(--md-muted-foreground, 113 113 122) / 1); font-size: 11px; }
+
+/* This file is generated. Do not edit directly. */
+
+:root {
+  --md-primary-50: 249 250 251;
+  --md-primary-100: 243 244 246;
+  --md-primary-200: 229 231 235;
+  --md-primary-300: 209 213 219;
+  --md-primary-400: 156 163 175;
+  --md-primary-500: 107 114 128;
+  --md-primary-600: 17 17 17;
+  --md-primary-700: 10 10 10;
+  --md-primary-800: 5 5 5;
+  --md-primary-900: 0 0 0;
+  --md-primary-950: 0 0 0;
+  --md-accent-50: 236 253 245;
+  --md-accent-100: 209 250 229;
+  --md-accent-200: 167 243 208;
+  --md-accent-300: 110 231 183;
+  --md-accent-400: 52 211 153;
+  --md-accent-500: 16 185 129;
+  --md-accent-600: 5 150 105;
+  --md-accent-700: 4 120 87;
+  --md-accent-800: 6 95 70;
+  --md-accent-900: 6 78 59;
+  --md-surface-50: 250 250 250;
+  --md-surface-100: 245 245 245;
+  --md-surface-200: 229 229 229;
+  --md-surface-300: 212 212 212;
+  --md-surface-400: 163 163 163;
+  --md-purple-50: 250 245 255;
+  --md-purple-100: 243 232 255;
+  --md-purple-200: 233 213 255;
+  --md-purple-300: 216 180 254;
+  --md-purple-400: 192 132 252;
+  --md-purple-500: 168 85 247;
+  --md-purple-600: 147 51 234;
+  --md-purple-700: 126 34 206;
+  --md-purple-800: 107 33 168;
+  --md-purple-900: 88 28 135;
+  --md-purple-950: 59 7 100;
+  --md-blue-50: 239 246 255;
+  --md-blue-100: 219 234 254;
+  --md-blue-200: 191 219 254;
+  --md-blue-300: 147 197 253;
+  --md-blue-400: 96 165 250;
+  --md-blue-500: 59 130 246;
+  --md-blue-600: 37 99 235;
+  --md-blue-700: 29 78 216;
+  --md-blue-800: 30 64 175;
+  --md-blue-900: 30 58 138;
+  --md-orange-50: 255 247 237;
+  --md-orange-100: 255 237 213;
+  --md-orange-200: 254 215 170;
+  --md-orange-300: 253 186 116;
+  --md-orange-400: 251 146 60;
+  --md-orange-500: 249 115 22;
+  --md-orange-600: 234 88 12;
+  --md-orange-700: 194 65 12;
+  --md-orange-800: 154 52 18;
+  --md-orange-900: 124 45 18;
+  --md-background: 255 255 255;
+  --md-foreground: 17 17 17;
+  --md-card: 255 255 255;
+  --md-card-foreground: 17 17 17;
+  --md-popover: 255 255 255;
+  --md-popover-foreground: 17 17 17;
+  --md-muted: 245 245 245;
+  --md-muted-foreground: 82 82 82;
+  --md-border: 229 231 235;
+  --md-input: 229 231 235;
+  --md-ring: 17 17 17;
+  --md-primary: 17 17 17;
+  --md-primary-foreground: 255 255 255;
+  --md-accent: 16 185 129;
+  --md-accent-foreground: 2 44 34;
+  --md-accent-subtle: 6 78 59;
+  --md-destructive: 220 38 38;
+  --md-destructive-foreground: 255 255 255;
+  --md-destructive-subtle: 185 28 28;
+  --md-success: 34 197 94;
+  --md-success-foreground: 22 101 52;
+  --md-warning: 245 158 11;
+  --md-warning-foreground: 146 64 14;
+  --md-info: 59 130 246;
+  --md-info-foreground: 29 78 216;
+  --md-diff-add: 16 185 129;
+  --md-diff-add-foreground: 4 120 87;
+  --md-diff-remove: 244 63 94;
+  --md-diff-remove-foreground: 190 18 60;
+  --md-ai: 139 92 246;
+  --md-ai-foreground: 109 40 217;
+  --md-radius-sm: 0.5rem;
+  --md-radius-md: 0.75rem;
+  --md-radius-lg: 1rem;
+  --md-radius-xl: 1.25rem;
+  --md-radius-2xl: 1.5rem;
+  --md-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --md-shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --md-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+:root[data-theme="dark"] {
+  --md-background: 10 10 10;
+  --md-foreground: 229 229 229;
+  --md-card: 17 17 17;
+  --md-card-foreground: 229 229 229;
+  --md-popover: 17 17 17;
+  --md-popover-foreground: 229 229 229;
+  --md-muted: 23 23 23;
+  --md-muted-foreground: 163 163 163;
+  --md-border: 38 38 38;
+  --md-input: 38 38 38;
+  --md-ring: 163 163 163;
+  --md-primary: 229 229 229;
+  --md-primary-foreground: 10 10 10;
+  --md-accent: 52 211 153;
+  --md-accent-foreground: 5 46 22;
+  --md-accent-subtle: 110 231 183;
+  --md-destructive: 248 113 113;
+  --md-destructive-foreground: 10 10 10;
+  --md-destructive-subtle: 252 165 165;
+  --md-success: 34 197 94;
+  --md-success-foreground: 74 222 128;
+  --md-warning: 245 158 11;
+  --md-warning-foreground: 251 191 36;
+  --md-info: 59 130 246;
+  --md-info-foreground: 96 165 250;
+  --md-diff-add: 16 185 129;
+  --md-diff-add-foreground: 52 211 153;
+  --md-diff-remove: 244 63 94;
+  --md-diff-remove-foreground: 251 113 133;
+  --md-ai: 139 92 246;
+  --md-ai-foreground: 167 139 250;
+}
+
+
+.mdedit-markdown {
+  box-sizing: border-box;
+  /* Typography using theme variables */
+  line-height: var(--wt-preview-content-line-height, 1.8);
+  font-family: var(--wt-preview-content-font-family, 'Charter', serif);
+  width: 100%;
+  /* Cap the reading measure: unbounded lines in a wide pane run 90+ characters.
+     Themes can widen or narrow it; 46rem keeps body text near 65-75ch. */
+  max-width: var(--wt-preview-content-max-width, 46rem);
+  margin-inline: auto;
+  font-size: var(--wt-preview-content-font-size, 16px);
+  color: var(--wt-preview-content-color, rgb(var(--md-foreground, 17 17 17) / 1));
+
+  /* Layout using theme variables */
+  padding: var(--wt-preview-content-padding, 1.25rem 1.5rem);
+  text-align: var(--wt-preview-content-text-align, start);
+
+  /* Background using theme variables. The shorthand alone must own this:
+     themes ship gradients here, and a later `background-image` declaration
+     would overwrite the shorthand's image slot and erase them. */
+  background: var(--wt-preview-content-background, transparent);
+  border-radius: var(--wt-preview-content-border-radius, 8px);
+  box-shadow: var(--wt-preview-content-box-shadow, none);
+  border: var(--wt-preview-content-border, none);
+}
+
+/* Headings using theme variables.
+   Weight and tracking come from the theme; size carries the hierarchy
+   (ratio ~1.25). Rhythm and leading are theme-tunable so parity themes can
+   match their target exactly. */
+.mdedit-markdown :is(h1, h2, h3, h4, h5, h6) {
+  margin: var(--wt-preview-heading-margin, 2.5em 0 1em 0);
+  font-weight: var(--wt-preview-headings-font-weight, 600);
+  line-height: var(--wt-preview-headings-line-height, 1.3);
+  color: var(--wt-preview-headings-color, rgb(var(--md-foreground, 17 17 17) / 1));
+  letter-spacing: var(--wt-preview-headings-letter-spacing, -0.01em);
+  font-family: var(--wt-preview-headings-font-family, 'Charter', serif);
+}
+
+.mdedit-markdown :is(h1, h2, h3, h4, h5, h6):first-child {
+  margin-top: 0;
+}
+
+.mdedit-markdown :is(h1, h2) {
+  border-bottom: var(--wt-preview-heading-divider, none);
+  padding-bottom: var(--wt-preview-heading-divider-padding, 0);
+}
+
+/* No per-level letter-spacing: the theme's tracking applies to every level
+   (Typewriter's wide 0.08em must not snap to tight tracking on h1/h2). */
+.mdedit-markdown h1 {
+  font-size: var(--wt-preview-h1-font-size, 2.2rem);
+}
+
+.mdedit-markdown h2 {
+  font-size: var(--wt-preview-h2-font-size, 1.75rem);
+}
+
+.mdedit-markdown h3 {
+  font-size: var(--wt-preview-h3-font-size, 1.4rem);
+}
+
+.mdedit-markdown h4 {
+  font-size: var(--wt-preview-h4-font-size, 1.15rem);
+}
+
+.mdedit-markdown h5 {
+  font-size: var(--wt-preview-h5-font-size, 1rem);
+}
+
+.mdedit-markdown h6 {
+  opacity: 0.85;
+  text-transform: var(--wt-preview-h6-text-transform, uppercase);
+  letter-spacing: var(--wt-preview-h6-letter-spacing, 0.05em);
+  font-size: var(--wt-preview-h6-font-size, 0.85rem);
+}
+
+/* Paragraph spacing */
+.mdedit-markdown p {
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+  text-align: inherit;
+}
+
+.mdedit-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists (canonical semantics; do not style via `li` to avoid nested leakage) */
+.mdedit-markdown :is(ul, ol) {
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+  padding-inline-start: 2rem;
+  text-align: start;
+  list-style-position: outside;
+}
+
+/* In Auto documents, nest each list from the writing side of its first item.
+   Individual list items still resolve independently when a list mixes scripts. */
+.mdedit-markdown :is(ul, ol):has(> li:first-child:dir(rtl)) {
+  direction: rtl;
+}
+
+.mdedit-markdown ul {
+  list-style-type: disc;
+}
+
+.mdedit-markdown ol {
+  list-style-type: decimal;
+}
+
+.mdedit-markdown li {
+  margin: 0.25rem 0;
+  line-height: inherit;
+  text-align: start;
+}
+
+/* Loose lists (item content wrapped in <p>) keep paragraph rhythm inside items;
+   the global p:last-child rule closes each item without trailing space. */
+.mdedit-markdown li > p {
+  margin: 0 0 0.75em 0;
+}
+
+/* Nested list marker styles */
+.mdedit-markdown ul ul {
+  list-style-type: circle;
+  margin: 0.25rem 0;
+}
+
+.mdedit-markdown ul ul ul {
+  list-style-type: square;
+}
+
+.mdedit-markdown ol ol {
+  list-style-type: lower-alpha;
+  margin: 0.25rem 0;
+}
+
+.mdedit-markdown ol ol ol {
+  list-style-type: lower-roman;
+}
+
+/* Mixed nesting should preserve the child list's semantics */
+.mdedit-markdown ol ul {
+  list-style-type: disc;
+  margin: 0.25rem 0;
+}
+
+.mdedit-markdown ul ol {
+  list-style-type: decimal;
+  margin: 0.25rem 0;
+}
+
+/* Task lists (remark-gfm adds `contains-task-list` / `task-list-item`) */
+.mdedit-markdown :is(ul.contains-task-list, ol.contains-task-list) {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.mdedit-markdown li.task-list-item {
+  list-style: none;
+}
+
+.mdedit-markdown li.task-list-item > input[type='checkbox'] {
+  margin-inline-end: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Tables */
+.mdedit-markdown table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+  width: 100%;
+  border: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  border-radius: var(--wt-preview-table-border-radius, 8px);
+  box-shadow: var(--wt-preview-table-box-shadow, var(--md-shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05)));
+}
+
+/* Keep wide tables readable instead of squeezing every column into the page.
+   This follows the same self-scrolling table pattern used by GitHub Markdown. */
+@media screen {
+  .mdedit-markdown table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.mdedit-markdown :is(th, td) {
+  padding: 12px 16px;
+  text-align: start;
+  /* Cells are data, not prose: prose leading (1.75-2.1) makes wrapped cells
+     read as loosely stacked lines. */
+  line-height: 1.5;
+  border-bottom: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* The table's own border closes the grid; a border under the last row would
+   float below the rounded corner. Only the final row of the table's final
+   section — a thead's last row still needs its separator from the body. */
+.mdedit-markdown table > :last-child > tr:last-child > :is(th, td) {
+  border-bottom: none;
+}
+
+.mdedit-markdown :is(th, td):not(:last-child) {
+  border-inline-end: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+}
+
+.mdedit-markdown th {
+  background-color: rgb(var(--md-muted, 245 245 245) / 1);
+  font-weight: 600;
+  font-size: var(--wt-preview-th-font-size, 0.875rem);
+  text-transform: var(--wt-preview-th-text-transform, uppercase);
+  letter-spacing: var(--wt-preview-th-letter-spacing, 0.05em);
+}
+
+/* Code */
+.mdedit-markdown code {
+  background-color: var(--wt-preview-code-background, rgb(var(--md-muted, 245 245 245) / 1));
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: var(--wt-preview-code-font-family, 'Monaco', 'Menlo', 'Ubuntu Mono', monospace);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Inline technical tokens may be longer than the viewport. Fenced code owns
+   its own scrolling/wrapping behavior below. */
+.mdedit-markdown :not(pre) > code {
+  overflow-wrap: anywhere;
+}
+
+/* Scrollable technical blocks keep a visible, theme-colored scrollbar even
+   when the host app hides scrollbars globally: a scrolling code block or
+   table with no scrollbar has zero overflow affordance. */
+.mdedit-markdown :is(pre, table) {
+  scrollbar-width: thin;
+  scrollbar-color: var(--wt-preview-scrollbar-thumb, rgb(var(--md-muted-foreground, 82 82 82) / 0.4))
+    var(--wt-preview-scrollbar-track, transparent);
+}
+
+.mdedit-markdown :is(pre, table)::-webkit-scrollbar {
+  display: block;
+  width: var(--wt-preview-scrollbar-width, 8px);
+  height: var(--wt-preview-scrollbar-width, 8px);
+}
+
+.mdedit-markdown :is(pre, table)::-webkit-scrollbar-track {
+  background: var(--wt-preview-scrollbar-track, transparent);
+}
+
+.mdedit-markdown :is(pre, table)::-webkit-scrollbar-thumb {
+  background: var(--wt-preview-scrollbar-thumb, rgb(var(--md-muted-foreground, 82 82 82) / 0.4));
+  border-radius: 4px;
+}
+
+.mdedit-markdown :is(pre, table)::-webkit-scrollbar-thumb:hover {
+  background: var(--wt-preview-scrollbar-thumb-hover, rgb(var(--md-muted-foreground, 82 82 82) / 0.6));
+}
+
+.mdedit-markdown pre {
+  position: relative;
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  /* Themes may tint the block surface; the syntax-highlighting theme's own
+     background paints inside it otherwise. */
+  background: var(--wt-preview-pre-background, transparent);
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  direction: ltr;
+  text-align: start;
+  unicode-bidi: isolate;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.mdedit-markdown pre * {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* The outer `<pre>` is the only border in the system.
+   Prevent any nested highlighter wrappers from accidentally introducing their own. */
+.mdedit-markdown pre :where(pre, .react-syntax-highlighter) {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.mdedit-markdown pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.875em;
+  font-family: var(--wt-preview-code-font-family, 'Monaco', 'Menlo', 'Ubuntu Mono', monospace);
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+/* `react-syntax-highlighter` uses a custom root element (`PreTag="div"`). The outer `<pre>`
+   (from the Markdown renderer) is the single source of truth for border + radius. */
+
+/* Make the line-number gutter feel intentional. No opacity: the muted
+   foreground token already sits at the AA floor. */
+.mdedit-markdown pre :is(span, td).react-syntax-highlighter-line-number {
+  color: rgb(var(--md-muted-foreground, 82 82 82) / 1);
+}
+
+/* Blockquotes using theme variables */
+.mdedit-markdown blockquote {
+  margin: var(--wt-preview-blockquote-margin, 2rem 0 2rem 1rem);
+  padding: var(--wt-preview-blockquote-padding, 1.5rem 2rem 1.5rem 1.5rem);
+  border-inline-start: var(--wt-preview-blockquote-border-inline-start, var(--wt-preview-blockquote-border-left, 3px solid rgb(var(--md-border, 229 231 235) / 1)));
+  background: var(--wt-preview-blockquote-background, transparent);
+  border-radius: var(--wt-preview-blockquote-border-radius, 0 12px 12px 0);
+  position: relative;
+  box-shadow: var(--wt-preview-blockquote-box-shadow, none);
+}
+
+/* Nested quotes keep the accent but stop re-spending the full padding:
+   two levels of 1.5rem+2rem would eat half the measure. */
+.mdedit-markdown blockquote blockquote {
+  margin: 0.75em 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+}
+
+.mdedit-markdown blockquote p {
+  margin: 0;
+  font-style: var(--wt-preview-blockquote-font-style, italic);
+  color: var(--wt-preview-blockquote-color, rgb(var(--md-muted-foreground, 82 82 82) / 1));
+  line-height: inherit;
+  text-align: start;
+}
+
+.mdedit-markdown blockquote p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.mdedit-markdown blockquote > *:first-child {
+  margin-top: 0;
+}
+
+.mdedit-markdown blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Horizontal rules */
+.mdedit-markdown hr {
+  margin: var(--wt-preview-hr-margin, 2rem 0);
+  border: none;
+  height: var(--wt-preview-hr-height, 1px);
+  background: var(--wt-preview-hr-background, linear-gradient(
+    to right,
+    transparent,
+    rgb(var(--md-border, 229 231 235) / 1),
+    transparent
+  ));
+}
+
+/* Links. Underlined by default so a link survives any color-token override;
+   themes opt out via --wt-preview-link-decoration (e.g. GitHub parity). */
+.mdedit-markdown a {
+  color: var(--wt-preview-link-color, rgb(var(--md-link, 124 58 237) / 1));
+  text-decoration: var(--wt-preview-link-decoration, underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  unicode-bidi: isolate;
+  overflow-wrap: anywhere;
+}
+
+.mdedit-markdown a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+/* Images */
+.mdedit-markdown :is(img, video, svg) {
+  max-width: 100%;
+  height: auto;
+}
+
+.mdedit-markdown img {
+  border-radius: var(--wt-preview-img-border-radius, 8px);
+  margin: 1rem 0;
+}
+
+.mdedit-markdown img[alt] {
+  display: block;
+}
+
+/* Front matter header (in-app Reading only): cover above the H1, byline below it */
+.mdedit-markdown .mdedit-fm-cover {
+  margin: 0 0 1.5rem;
+}
+
+.mdedit-markdown .mdedit-fm-cover + :is(h1, div) {
+  margin-top: 0;
+}
+
+.mdedit-markdown .mdedit-fm-cover img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(70vh, 640px);
+  object-fit: contain;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+.mdedit-markdown .mdedit-fm-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  margin: -0.25rem 0 1.25rem;
+  font-size: 0.85em;
+  color: rgb(var(--md-muted-foreground, 82 82 82) / 1);
+}
+
+.mdedit-markdown .mdedit-fm-byline .mdedit-fm-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.mdedit-markdown .mdedit-fm-byline .mdedit-fm-tag {
+  padding: 0 0.45rem;
+  border: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  border-radius: 999px;
+}
+
+/* Better spacing for elements */
+.mdedit-markdown > *:first-child {
+  margin-top: 0 !important;
+}
+
+.mdedit-markdown > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Definition lists */
+.mdedit-markdown dl {
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+}
+
+.mdedit-markdown dt {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.mdedit-markdown dt:first-child {
+  margin-top: 0;
+}
+
+.mdedit-markdown dd {
+  margin-block: 0.25rem 1rem;
+  margin-inline: 1.5rem 0;
+}
+
+/* Emphasis and strong */
+.mdedit-markdown em {
+  font-style: italic;
+}
+
+.mdedit-markdown strong {
+  font-weight: 600;
+}
+
+/* Mark/highlight. Force a dark ink so the highlight stays readable when the
+   surrounding theme text is light (dark mode). */
+.mdedit-markdown mark {
+  background-color: rgb(var(--md-orange-200, 254 215 170) / 0.6);
+  color: rgb(23 23 23 / 1);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+}
+
+/* GFM footnotes (remark-gfm emits section[data-footnotes] with an sr-only heading) */
+.mdedit-markdown .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mdedit-markdown section[data-footnotes] {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  font-size: 0.875em;
+  color: rgb(var(--md-muted-foreground, 82 82 82) / 1);
+}
+
+.mdedit-markdown section[data-footnotes] :is(ul, ol) {
+  padding-inline-start: 1.25rem;
+}
+
+.mdedit-markdown sup a[data-footnote-ref] {
+  text-decoration: none;
+  padding-inline: 0.125em;
+}
+
+.mdedit-markdown a[data-footnote-backref] {
+  text-decoration: none;
+}
+
+/* Better spacing after headings */
+.mdedit-markdown :is(h1, h2, h3, h4, h5, h6) + * {
+  margin-top: 0;
+}
+
+/* Keyboard focus: the ring token exists for exactly this. */
+.mdedit-markdown :is(a, button, summary, input, [tabindex]):focus-visible {
+  outline: 2px solid rgb(var(--md-ring, 59 130 246) / 1);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mdedit-markdown,
+  .mdedit-markdown * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mdedit-markdown {
+    min-width: 0;
+    padding: var(--wt-preview-mobile-content-padding, 1rem 1.25rem);
+    font-size: var(--wt-preview-mobile-content-font-size, 15px);
+    overflow-wrap: break-word;
+  }
+
+  .mdedit-markdown :is(h1, h2, h3, h4, h5, h6) {
+    margin-block: var(--wt-preview-mobile-heading-margin-block, 2em 0.75em);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .mdedit-markdown h1 {
+    font-size: var(--wt-preview-mobile-h1-font-size, 1.95em);
+  }
+
+  .mdedit-markdown h2 {
+    font-size: var(--wt-preview-mobile-h2-font-size, 1.55em);
+  }
+
+  .mdedit-markdown h3 {
+    font-size: var(--wt-preview-mobile-h3-font-size, 1.3em);
+  }
+
+  .mdedit-markdown h4 {
+    font-size: var(--wt-preview-mobile-h4-font-size, 1.1em);
+  }
+
+  .mdedit-markdown h5 {
+    font-size: var(--wt-preview-mobile-h5-font-size, 1em);
+  }
+
+  .mdedit-markdown h6 {
+    font-size: var(--wt-preview-mobile-h6-font-size, 0.85em);
+  }
+
+  .mdedit-markdown :is(ul, ol) {
+    padding-inline-start: 1.5rem;
+  }
+
+  .mdedit-markdown :is(th, td) {
+    padding: 10px 12px;
+  }
+
+  .mdedit-markdown blockquote {
+    margin: var(--wt-preview-mobile-blockquote-margin, 1.5rem 0);
+    padding: var(--wt-preview-mobile-blockquote-padding, 1rem 1.125rem);
+  }
+
+  .mdedit-markdown pre {
+    margin: 0 0 1.25rem 0;
+  }
+
+  .mdedit-markdown pre code {
+    font-size: 0.8125em;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .mdedit-markdown .mdedit-code-copy-button {
+    width: 40px !important;
+    height: 40px !important;
+    opacity: 1 !important;
+  }
+
+  .mdedit-markdown .mdedit-code-block code > span:first-child {
+    box-sizing: border-box;
+    padding-inline-end: 48px;
+  }
+}
+
+</style>
+    <style>
+      html, body { margin: 0; padding: 0; background: rgb(var(--md-background)); color: rgb(var(--md-foreground)); }
+      @media print {
+        @page { margin: 0; }
+        html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; color: #111 !important; color-scheme: light; }
+        html {
+          --md-background: 255 255 255 !important;
+          --md-foreground: 17 17 17 !important;
+          --md-card: 255 255 255 !important;
+          --md-border: 229 231 235 !important;
+          --md-muted: 245 245 245 !important;
+          --md-muted-foreground: 75 85 99 !important;
+          --md-ring: 168 85 247 !important;
+        }
+        :root, :root[data-theme="dark"], :root[data-theme="light"] {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .mdedit-markdown code {
+          background: rgb(var(--md-muted)) !important;
+          color: rgb(var(--md-foreground)) !important;
+          border: 1px solid rgb(var(--md-border)) !important;
+        }
+        .mdedit-markdown pre {
+          background: rgb(var(--md-muted)) !important;
+          color: rgb(var(--md-foreground)) !important;
+          border: 1px solid rgb(var(--md-border)) !important;
+        }
+        .mdedit-markdown pre code {
+          background: transparent !important;
+          border: none !important;
+          color: inherit !important;
+        }
+        .mdedit-markdown pre > div > div:has(> code) {
+          background: rgb(var(--md-muted)) !important;
+          color: rgb(var(--md-foreground)) !important;
+        }
+        .mdedit-markdown pre code * {
+          background: transparent !important;
+          color: rgb(var(--md-foreground)) !important;
+        }
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div id="mdedit-export-root" data-theme="dark" dir="auto" style="--md-document-background: #100c08; --md-document-surface: #1c1814; --md-document-text: #d8cbb8; --md-document-heading: #ede0cc; --md-document-border: rgba(200, 170, 120, 0.07); --md-document-font-family: 'Charter', 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Georgia', serif; --md-document-font-size: 17px; --md-document-line-height: 1.9; --wt-preview-container-background: #100c08; --wt-preview-container-background-image: none; --wt-preview-content-padding: 2rem 2.5rem; --wt-preview-content-font-size: 17px; --wt-preview-content-line-height: 1.9; --wt-preview-content-font-family: 'Charter', 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Georgia', serif; --wt-preview-content-color: #d8cbb8; --wt-preview-content-text-align: start; --wt-preview-content-background: #1c1814; --wt-preview-content-background-image: none; --wt-preview-content-border-radius: 4px; --wt-preview-content-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4); --wt-preview-content-border: 1px solid rgba(200, 170, 120, 0.07); --wt-preview-headings-font-family: 'Charter', 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Georgia', serif; --wt-preview-headings-font-weight: 500; --wt-preview-headings-letter-spacing: -0.01em; --wt-preview-headings-color: #ede0cc; --wt-preview-blockquote-border-inline-start: 3px solid #c9956a; --wt-preview-blockquote-border-left: 3px solid #c9956a; --wt-preview-blockquote-background: rgba(201, 149, 106, 0.07); --wt-preview-blockquote-border-radius: 0 6px 6px 0; --wt-preview-blockquote-box-shadow: none; --wt-preview-blockquote-padding: 1rem 1.5rem; --wt-preview-blockquote-margin: 2rem 0 2rem 0.5rem; --wt-preview-scrollbar-width: 8px; --wt-preview-scrollbar-track: rgba(200, 170, 120, 0.04); --wt-preview-scrollbar-thumb: rgba(200, 170, 120, 0.18); --wt-preview-scrollbar-thumb-hover: rgba(200, 170, 120, 0.32); --wt-preview-link-color: #c9956a; --wt-preview-code-background: rgba(201, 149, 106, 0.14); --wt-preview-pre-background: #251e16; --wt-preview-blockquote-color: #b5a68f;"><div style="height: 100%; overflow: auto; background-image: var(--wt-preview-container-background-image, none); background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: ;"><div style="padding: 0px;"><div class="react-markdown-preview"><div class="mdedit-markdown" dir="auto"><h1 dir="auto" id="passo-a-passo-domnios-dns-cloudflare-e-e-mail-resend" level="1">Passo a passo: domínios, DNS (Cloudflare) e e-mail (Resend)</h1>
+<p dir="auto">Vale para <strong>roupadedomingo.com.br</strong> e <strong>timedobairro.com.br</strong>. O objetivo é deixar os dois funcionando como o
+<strong>hispora.com.br</strong>: domínio registrado no registro.br, DNS no Cloudflare, site no Railway e e-mail
+transacional saindo pelo Resend.</p>
+<p dir="auto">Este mesmo arquivo existe em <code dir="ltr">refs/RD/docs/stepByStep/</code> e em <code dir="ltr">refs/time-do-bairro/docs/</code>.</p>
+<hr>
+<h2 dir="auto" id="resumo-o-que-j-est-pronto-e-o-que-falta" level="2">Resumo: o que já está pronto e o que falta</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th dir="auto">Etapa</th><th dir="auto">roupadedomingo.com.br</th><th dir="auto">timedobairro.com.br</th></tr></thead><tbody><tr><td dir="auto">Zona criada no Cloudflare (plano Free)</td><td dir="auto">✅</td><td dir="auto">✅</td></tr><tr><td dir="auto">Configurações da zona iguais às do Hispora (SSL Full etc.)</td><td dir="auto">✅</td><td dir="auto">✅</td></tr><tr><td dir="auto">DMARC ajustado para <code dir="ltr">p=none</code> (igual ao Hispora)</td><td dir="auto">✅</td><td dir="auto">✅</td></tr><tr><td dir="auto">Domínio cadastrado no Resend (região São Paulo)</td><td dir="auto">✅</td><td dir="auto">✅ (pocketmed removido para liberar a vaga)</td></tr><tr><td dir="auto">Registros do Resend (DKIM, <code dir="ltr">send</code>, <code dir="ltr">rsend</code>) no Cloudflare</td><td dir="auto">✅</td><td dir="auto">✅</td></tr><tr><td dir="auto">Nameservers trocados no registro.br</td><td dir="auto">❌ <strong>você</strong> (passo 1)</td><td dir="auto">❌ <strong>você</strong> (passo 1)</td></tr><tr><td dir="auto">Remover o MX nulo <code dir="ltr">.</code></td><td dir="auto">❌ <strong>você</strong> (passo 3)</td><td dir="auto">❌ <strong>você</strong> (passo 3)</td></tr><tr><td dir="auto">Domínio personalizado no Railway + CNAMEs da raiz e <code dir="ltr">www</code></td><td dir="auto">❌ passo 4</td><td dir="auto">❌ passo 4</td></tr><tr><td dir="auto">Variáveis de e-mail e URL no backend</td><td dir="auto">❌ passo 5</td><td dir="auto">❌ passo 5</td></tr><tr><td dir="auto">Receber e-mail (ex.: <code dir="ltr">sac@</code>), opcional</td><td dir="auto">❌ passo 6 (recomendado no RD)</td><td dir="auto">opcional</td></tr></tbody></table>
+<h3 dir="auto" id="como-o-hispora-est-montado-referncia" level="3">Como o Hispora está montado (referência)</h3>
+<p dir="auto"><strong>Cloudflare: zona <code dir="ltr">hispora.com.br</code></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th dir="auto">Tipo</th><th dir="auto">Nome</th><th dir="auto">Conteúdo</th><th dir="auto">Proxy</th></tr></thead><tbody><tr><td dir="auto">CNAME</td><td dir="auto"><code dir="ltr">@</code> (raiz)</td><td dir="auto"><code dir="ltr">&lt;serviço&gt;.up.railway.app</code> (web)</td><td dir="auto">Proxied</td></tr><tr><td dir="auto">CNAME</td><td dir="auto"><code dir="ltr">www</code></td><td dir="auto"><code dir="ltr">&lt;serviço&gt;.up.railway.app</code></td><td dir="auto">Proxied</td></tr><tr><td dir="auto">TXT</td><td dir="auto"><code dir="ltr">_railway-verify</code></td><td dir="auto"><code dir="ltr">railway-verify=…</code> (gerado pelo Railway)</td><td dir="auto">DNS only</td></tr><tr><td dir="auto">TXT</td><td dir="auto"><code dir="ltr">resend._domainkey</code></td><td dir="auto">chave DKIM gerada pelo Resend</td><td dir="auto">DNS only</td></tr></tbody></table>
+<p dir="auto"><strong>Configurações da zona:</strong> SSL/TLS <strong>Full</strong>, TLS 1.3 ligado, HTTP/3 ligado, Brotli ligado, IPv6 ligado e
+"Always Use HTTPS" desligado. As duas zonas novas já estão assim.</p>
+<p dir="auto"><strong>Resend:</strong> domínio na região <strong>São Paulo (sa-east-1)</strong>, com return-path <code dir="ltr">send</code> e os registros DKIM,
+<code dir="ltr">send</code>/<code dir="ltr">rsend</code> (SPF) e DMARC <code dir="ltr">p=none</code>.</p>
+<hr>
+<h2 dir="auto" id="passo-1-trocar-os-nameservers-no-registrobr-os-dois-domnios" level="2">Passo 1: trocar os nameservers no registro.br (os dois domínios)</h2>
+<p dir="auto">Sem este passo nada funciona: o Cloudflare só passa a responder pelo domínio depois dele.</p>
+<ol dir="auto">
+<li dir="auto">Entre em <a href="https://registro.br/painel/" target="_blank" rel="noreferrer">registro.br/painel</a> com a sua conta.</li>
+<li dir="auto">Abra <strong>roupadedomingo.com.br</strong> → seção <strong>DNS</strong> → <strong>Alterar servidores DNS</strong>.</li>
+<li dir="auto">Apague os servidores atuais (<code dir="ltr">a.auto.dns.br</code>, <code dir="ltr">b.auto.dns.br</code>) e coloque:
+<ul dir="auto">
+<li dir="auto"><code dir="ltr">ian.ns.cloudflare.com</code></li>
+<li dir="auto"><code dir="ltr">izabella.ns.cloudflare.com</code></li>
+</ul>
+</li>
+<li dir="auto">Salve.</li>
+<li dir="auto">Repita os passos 2 a 4 para <strong>timedobairro.com.br</strong>, com os mesmos dois servidores.</li>
+<li dir="auto">Espere. A propagação costuma levar de alguns minutos a algumas horas (no registro.br pode chegar a 24 h).
+<ul dir="auto">
+<li dir="auto">O Cloudflare manda um e-mail quando a zona fica <strong>Active</strong>.</li>
+<li dir="auto">Para conferir: Cloudflare → Domains, o status muda de <em>Pending</em> para <em>Active</em>.</li>
+</ul>
+</li>
+</ol>
+<blockquote dir="auto">
+<p dir="auto">Se o registro.br avisar que o DNSSEC está ativo, desative antes de trocar. O Hispora está com DNSSEC
+desligado no Cloudflare.</p>
+</blockquote>
+<hr>
+<h2 dir="auto" id="passo-2-verificar-os-domnios-no-resend-os-dois" level="2">Passo 2: verificar os domínios no Resend (os dois)</h2>
+<p dir="auto">✅ Já feito: os dois domínios estão cadastrados no Resend (São Paulo, return-path <code dir="ltr">send</code>, tracking desligado), e
+os registros DKIM (<code dir="ltr">resend._domainkey</code>), <code dir="ltr">send</code> e <code dir="ltr">rsend</code> estão no Cloudflare como <strong>DNS only</strong>. O
+<code dir="ltr">pocketmed.com.br</code> foi removido do Resend para liberar a 3ª vaga do plano gratuito.</p>
+<p dir="auto">Falta só verificar, <strong>depois</strong> que o passo 1 propagar (zona <em>Active</em> no Cloudflare):</p>
+<ol dir="auto">
+<li dir="auto">Resend → <strong>Domains</strong> → abra o domínio.</li>
+<li dir="auto">Clique em <strong>Restart</strong> / <strong>Verify DNS records</strong>. "Not Started" é normal até você clicar.</li>
+<li dir="auto">Quando o status ficar <strong>Verified</strong>, o envio está liberado. Repita para o outro domínio.</li>
+</ol>
+<blockquote dir="auto">
+<p dir="auto">Se algum registro falhar, confira no Cloudflare se ele está como <strong>DNS only</strong> (nuvem cinza). Com proxy
+ligado, CNAME de e-mail não funciona.</p>
+</blockquote>
+<hr>
+<h2 dir="auto" id="passo-3-apagar-o-mx-nulo-nos-dois-domnios" level="2">Passo 3: apagar o MX nulo nos dois domínios</h2>
+<p dir="auto">O registro.br cria por padrão os registros de "domínio que não usa e-mail", e o Cloudflare importou
+esses registros:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th dir="auto">Tipo</th><th dir="auto">Nome</th><th dir="auto">Conteúdo</th><th dir="auto">O que fazer</th></tr></thead><tbody><tr><td dir="auto">MX</td><td dir="auto"><code dir="ltr">@</code></td><td dir="auto"><code dir="ltr">.</code> (MX nulo)</td><td dir="auto"><strong>Apagar.</strong> Diz ao mundo que o domínio não recebe e-mail; alguns provedores recusam mensagens de domínios assim</td></tr><tr><td dir="auto">TXT</td><td dir="auto"><code dir="ltr">@</code></td><td dir="auto"><code dir="ltr">v=spf1 -all</code></td><td dir="auto">Pode manter. O Resend usa o SPF do subdomínio <code dir="ltr">send</code>, não o da raiz</td></tr><tr><td dir="auto">TXT</td><td dir="auto"><code dir="ltr">_dmarc</code></td><td dir="auto"><code dir="ltr">v=DMARC1; p=none;</code></td><td dir="auto">Já ajustado. Manter</td></tr></tbody></table>
+<p dir="auto">Como apagar: Cloudflare → zona → <strong>DNS</strong> → <strong>Records</strong> → linha <strong>MX</strong> com conteúdo <code dir="ltr">.</code> → <strong>Edit</strong> →
+<strong>Delete</strong> → confirmar. Faça nos dois domínios.</p>
+<blockquote dir="auto">
+<p dir="auto">Eu tentei apagar e a ação foi bloqueada pela permissão do modo automático. Por isso fica com você.</p>
+</blockquote>
+<hr>
+<h2 dir="auto" id="passo-4-site-no-domnio-railway--cloudflare" level="2">Passo 4: site no domínio (Railway + Cloudflare)</h2>
+<p dir="auto">Igual ao Hispora: a raiz e o <code dir="ltr">www</code> apontam por CNAME para o serviço web no Railway.</p>
+<h3 dir="auto" id="roupadedomingocombr" level="3">roupadedomingo.com.br</h3>
+<p dir="auto">O serviço que recebe o tráfego é o <strong><code dir="ltr">frontend-roupa-de-domingo</code></strong>: o nginx serve o site e repassa <code dir="ltr">/api</code>
+ao backend.</p>
+<ol dir="auto">
+<li dir="auto">
+<p dir="auto">Railway → projeto do RD → serviço <strong>frontend-roupa-de-domingo</strong> → <strong>Settings</strong> → <strong>Networking</strong> →
+<strong>Custom Domain</strong> → digite <code dir="ltr">roupadedomingo.com.br</code> → porta = a mesma do domínio <code dir="ltr">*.up.railway.app</code>
+que já existe.</p>
+</li>
+<li dir="auto">
+<p dir="auto">O Railway mostra dois valores:</p>
+<ul dir="auto">
+<li dir="auto">um <strong>CNAME</strong> (algo como <code dir="ltr">xxxx.up.railway.app</code>)</li>
+<li dir="auto">um <strong>TXT</strong> <code dir="ltr">_railway-verify</code> com <code dir="ltr">railway-verify=…</code></li>
+</ul>
+</li>
+<li dir="auto">
+<p dir="auto">No Cloudflare (zona <code dir="ltr">roupadedomingo.com.br</code> → DNS → Add record):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th dir="auto">Tipo</th><th dir="auto">Nome</th><th dir="auto">Conteúdo</th><th dir="auto">Proxy</th></tr></thead><tbody><tr><td dir="auto">CNAME</td><td dir="auto"><code dir="ltr">@</code></td><td dir="auto">o CNAME que o Railway mostrou</td><td dir="auto"><strong>Proxied</strong> (nuvem laranja)</td></tr><tr><td dir="auto">TXT</td><td dir="auto"><code dir="ltr">_railway-verify</code></td><td dir="auto">o valor <code dir="ltr">railway-verify=…</code></td><td dir="auto">DNS only</td></tr></tbody></table>
+</li>
+<li dir="auto">
+<p dir="auto">Repita os passos 1 a 3 para <code dir="ltr">www.roupadedomingo.com.br</code>:</p>
+<ul dir="auto">
+<li dir="auto">Custom Domain <code dir="ltr">www.roupadedomingo.com.br</code> no mesmo serviço;</li>
+<li dir="auto">no Cloudflare, CNAME <code dir="ltr">www</code> com o valor que o Railway der, <strong>Proxied</strong>.</li>
+</ul>
+</li>
+<li dir="auto">
+<p dir="auto">Espere o Railway marcar os dois domínios como verificados, com certificado emitido.</p>
+</li>
+<li dir="auto">
+<p dir="auto">Teste <code dir="ltr">https://roupadedomingo.com.br</code> e <code dir="ltr">https://www.roupadedomingo.com.br</code>.</p>
+</li>
+</ol>
+<h3 dir="auto" id="timedobairrocombr" level="3">timedobairro.com.br</h3>
+<p dir="auto">O mesmo procedimento, no serviço web do Time do Bairro no Railway (o que serve o app web; hoje o
+<code dir="ltr">APP_URL</code> local é <code dir="ltr">http://localhost:8081</code>).</p>
+<ul dir="auto">
+<li dir="auto">Se o Time do Bairro ainda não está no Railway, faça o deploy primeiro e depois siga os passos acima.</li>
+<li dir="auto">Se o backend tiver domínio próprio (por exemplo <code dir="ltr">api.timedobairro.com.br</code>), adicione-o como Custom Domain
+no serviço do backend. Crie também o CNAME <code dir="ltr">api</code> no Cloudflare, Proxied.</li>
+</ul>
+<blockquote dir="auto">
+<p dir="auto">Se quiser, me peça para cadastrar os CNAMEs no Cloudflare quando o Railway gerar os valores.</p>
+</blockquote>
+<hr>
+<h2 dir="auto" id="passo-5-variveis-de-ambiente-nos-backends-railway--servio--variables" level="2">Passo 5: variáveis de ambiente nos backends (Railway → serviço → Variables)</h2>
+<h3 dir="auto" id="chave-do-resend" level="3">Chave do Resend</h3>
+<ol dir="auto">
+<li dir="auto">Resend → <strong>API keys</strong> → <strong>Create API key</strong>.</li>
+<li dir="auto">Preencha:
+<ul dir="auto">
+<li dir="auto"><strong>Permission:</strong> <em>Sending access</em></li>
+<li dir="auto"><strong>Domain:</strong> o domínio específico (uma chave por projeto)</li>
+</ul>
+</li>
+<li dir="auto">Copie a chave (<code dir="ltr">re_…</code>). Ela só aparece uma vez. Não cole em chat nem commite; vai só no Railway.</li>
+</ol>
+<p dir="auto">Os dois backends enviam por <strong>SMTP</strong> (nodemailer), e o Resend aceita SMTP:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th dir="auto">Campo</th><th dir="auto">Valor</th></tr></thead><tbody><tr><td dir="auto">Host</td><td dir="auto"><code dir="ltr">smtp.resend.com</code></td></tr><tr><td dir="auto">Porta</td><td dir="auto"><code dir="ltr">465</code> (TLS direto) ou <code dir="ltr">587</code> (STARTTLS)</td></tr><tr><td dir="auto">Usuário</td><td dir="auto"><code dir="ltr">resend</code> (literalmente essa palavra)</td></tr><tr><td dir="auto">Senha</td><td dir="auto">a API key <code dir="ltr">re_…</code></td></tr></tbody></table>
+<h3 dir="auto" id="roupadedomingo-servio-backend-roupa-de-domingo" level="3">roupadedomingo: serviço <code dir="ltr">backend-roupa-de-domingo</code></h3>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">7
+</span><span class="react-syntax-highlighter-line-number">8
+</span><span class="react-syntax-highlighter-line-number">9
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">MAIL_DRIVER=smtp
+MAIL_FROM="Roupa de Domingo &lt;nao-responda@roupadedomingo.com.br&gt;"
+MAIL_SAC_INBOX=sac@roupadedomingo.com.br
+SMTP_HOST=smtp.resend.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=resend
+SMTP_PASS=&lt;API key re_... do Resend&gt;
+FRONTEND_URL=https://roupadedomingo.com.br</code></div></div></pre>
+<p dir="auto">Depois que o domínio estiver no ar, atualize também:</p>
+<ul dir="auto">
+<li dir="auto"><strong>Mercado Pago:</strong> troque a URL do webhook no painel (Suas integrações → Webhooks) para
+<code dir="ltr">https://roupadedomingo.com.br/api/payments/webhook</code>. Se <code dir="ltr">MP_NOTIFICATION_URL</code> estiver definida, atualize
+com o mesmo valor.</li>
+<li dir="auto"><strong>Printful:</strong> webhook em <code dir="ltr">https://roupadedomingo.com.br/api/fulfillment/webhook/printful?secret=&lt;PRINT_WEBHOOK_SECRET&gt;</code>.</li>
+<li dir="auto">O domínio <code dir="ltr">*.up.railway.app</code> continua funcionando. Pode manter como reserva.</li>
+</ul>
+<h3 dir="auto" id="timedobairro-servio-do-backend" level="3">timedobairro: serviço do backend</h3>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">7
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">MAIL_FROM="Time do Bairro &lt;nao-responda@timedobairro.com.br&gt;"
+SMTP_HOST=smtp.resend.com
+SMTP_PORT=587
+SMTP_USER=resend
+SMTP_PASSWORD=&lt;API key re_... do Resend&gt;
+APP_URL=https://timedobairro.com.br
+CORS_ORIGIN=https://timedobairro.com.br,https://www.timedobairro.com.br</code></div></div></pre>
+<p dir="auto">Notas:</p>
+<ul dir="auto">
+<li dir="auto">O <code dir="ltr">MAIL_FROM</code> padrão no código ainda é <code dir="ltr">@timedobairro.app</code>. Defina a variável no Railway para usar o
+domínio <code dir="ltr">.com.br</code> verificado no Resend: e-mail com remetente de domínio não verificado é recusado.</li>
+<li dir="auto">Aqui a variável da senha se chama <code dir="ltr">SMTP_PASSWORD</code>, e não <code dir="ltr">SMTP_PASS</code> como no RD.</li>
+<li dir="auto">O mail service do Time do Bairro não tem opção <code dir="ltr">secure</code>, então use a porta <strong>587</strong> (STARTTLS).</li>
+<li dir="auto"><code dir="ltr">CORS_ORIGIN</code> só é necessário se o front chamar o backend em outro domínio (ex.: <code dir="ltr">api.</code>).</li>
+</ul>
+<p dir="auto">Depois de salvar as variáveis, faça <strong>Deploy</strong> no Railway e teste um fluxo que envie e-mail (cadastro,
+"esqueci a senha"). Resend → <strong>Logs</strong> mostra se saiu e se foi entregue.</p>
+<hr>
+<h2 dir="auto" id="passo-6-opcional-recomendado-no-rd-receber-e-mail-no-domnio" level="2">Passo 6 (opcional, recomendado no RD): receber e-mail no domínio</h2>
+<p dir="auto">O Resend só <strong>envia</strong>. O Hispora não recebe e-mail no domínio. A Roupa de Domingo, porém, mostra
+<code dir="ltr">sac@roupadedomingo.com.br</code> para o cliente (SAC, exigência do CDC), então esse endereço precisa receber
+mensagens.</p>
+<p dir="auto">Caminho gratuito: <strong>Cloudflare Email Routing</strong> (repassa para o seu Gmail).</p>
+<ol dir="auto">
+<li dir="auto">Faça o passo 3 antes (apagar o MX nulo).</li>
+<li dir="auto">Cloudflare → zona <code dir="ltr">roupadedomingo.com.br</code> → <strong>Email</strong> → <strong>Email Routing</strong> → <strong>Get started</strong>.</li>
+<li dir="auto">Crie a regra <code dir="ltr">sac@roupadedomingo.com.br</code> → encaminhar para o seu e-mail pessoal, e confirme o e-mail de
+verificação que chegar.</li>
+<li dir="auto">O Cloudflare oferece adicionar os registros MX e SPF dele. Aceite.
+<ul dir="auto">
+<li dir="auto">Os MX vão na raiz e não conflitam com o Resend, que usa <code dir="ltr">send.</code>.</li>
+<li dir="auto">O Cloudflare vai propor trocar o <code dir="ltr">v=spf1 -all</code> da raiz pelo SPF dele. Pode aceitar.</li>
+</ul>
+</li>
+<li dir="auto">Envie um e-mail de teste para <code dir="ltr">sac@roupadedomingo.com.br</code>.</li>
+</ol>
+<p dir="auto">Para o Time do Bairro, faça o mesmo se algum endereço do domínio aparecer para os usuários.</p>
+<hr>
+<h2 dir="auto" id="checklist-final" level="2">Checklist final</h2>
+<ul dir="auto" class="contains-task-list">
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Passo 1: nameservers do Cloudflare no registro.br (roupadedomingo)</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Passo 1: nameservers do Cloudflare no registro.br (timedobairro)</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Zonas <strong>Active</strong> no Cloudflare</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly="" checked=""> Passo 2: os dois domínios cadastrados no Resend com os registros no Cloudflare</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Resend mostrando <strong>Verified</strong> nos dois domínios (clicar em verificar depois da propagação)</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Passo 3: MX <code dir="ltr">.</code> apagado nos dois domínios</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Passo 4: Custom Domain (raiz e <code dir="ltr">www</code>) no Railway + CNAMEs Proxied + TXT <code dir="ltr">_railway-verify</code> (roupadedomingo)</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Passo 4: o mesmo para o timedobairro</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Passo 5: API keys do Resend criadas e variáveis de e-mail e URL nos dois backends</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Passo 5: webhooks do Mercado Pago e da Printful apontando para <code dir="ltr">roupadedomingo.com.br</code></li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Passo 6: <code dir="ltr">sac@roupadedomingo.com.br</code> recebendo (Email Routing)</li>
+<li dir="auto" class="task-list-item"><input type="checkbox" disabled="" readonly=""> Teste: cadastro / recuperação de senha chegando na caixa de entrada (não no spam) nos dois projetos</li>
+</ul></div></div></div></div></div>
+  </body>
+</html>

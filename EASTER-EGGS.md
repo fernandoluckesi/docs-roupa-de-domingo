@@ -14,11 +14,28 @@ Toda descoberta vai para `POST /api/easter-eggs/:code/discover` e aparece em
 | 2   | `LOGO_SETE_CLIQUES`         | 7 cliques no logo                         | "Sete cliques. O logo não vai mudar de ideia sobre você."                                  | ativa "modo domingo de manhã" (tema esmaecido) |
 | 3   | `PEDIDO_DE_DESCULPAS`       | digitar `desculpa` em qualquer tela       | "Aceitamos o pedido de desculpas que você nem devia ter feito. Toma 15%."                  | cupom `DESCULPA15`                             |
 | 4   | `CARRINHO_VAZIO_TRES_VEZES` | abrir o carrinho vazio 3x                 | "Terceira vez olhando o vazio. Isso não é compra, é terapia — e a nossa é mais barata."    | —                                              |
-| 5   | `CONSOLE_CURIOSO`           | abrir o DevTools console                  | ASCII art + vaga de emprego                                                                | —                                              |
 | 6   | `RODAPE_CONFISSAO`          | hover de 5s no rodapé                     | "Ninguém lê rodapé. Então: a gente também não sabe o que está fazendo. Bem-vindo."         | —                                              |
 | 7   | `QUARENTA_E_DOIS`           | quantidade 42 de um item                  | "42 unidades. A resposta para tudo, inclusive para 'quantas camisetas iguais são demais'." | frete grátis                                   |
 | 8   | `QUATRO_ZERO_QUATRO`        | acessar uma rota inexistente              | "Esta página não existe. Igual aos seus planos de domingo à noite."                        | —                                              |
 | 9   | `PRODUTO_SECRETO`           | descobrir 4 easter eggs                   | libera o produto secreto no catálogo                                                       | acesso ao produto `isSecret`                   |
+
+### Pegadinha do desconto (só frontend, não conta troféu)
+
+`components/easter-eggs/FakeDiscountPrank.tsx`:
+
+1. Após 30s no site (fora de carrinho, checkout, pagamento, conta e login, e com o
+   aviso de cookies já respondido), abre um modal "Você ganhou 20% de desconto!".
+2. O botão "Quero" faz o modal fugir para outro ponto da tela (hover no desktop,
+   toque no celular, Enter no teclado). "Não quero" e Esc fecham.
+3. Depois de 12 fugas ou 16s, o modal fecha e aparece o snackbar
+   "Como é engraçado te fazer de trouxa."
+4. 20s depois, um modal sem botões: "Achou mesmo que iria ganhar desconto assim
+   fácil? ... ache o código secreto olhando para o teto." Após 6s troca para
+   "Você olhou mesmo? haha" e some num fade de 3s. Não bloqueia cliques.
+
+Não existe código: é só a piada. Repete no máximo a cada 5 dias
+(`rd:fakeDiscountShownAt` no localStorage, categoria Preferências; sem esse
+consentimento, vale só enquanto a aba estiver aberta).
 
 ### Backend também tem
 

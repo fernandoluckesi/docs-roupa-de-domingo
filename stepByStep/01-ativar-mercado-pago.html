@@ -1,0 +1,1218 @@
+<!doctype html>
+<html dir="auto" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>01-ativar-mercado-pago</title>
+    <style>@font-face{font-display:block;font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"),url(fonts/KaTeX_AMS-Regular.woff) format("woff"),url(fonts/KaTeX_AMS-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Bold.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Regular.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Fraktur-Bold.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Bold.woff) format("woff"),url(fonts/KaTeX_Fraktur-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Fraktur-Regular.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Regular.woff) format("woff"),url(fonts/KaTeX_Fraktur-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Main-Bold.woff2) format("woff2"),url(fonts/KaTeX_Main-Bold.woff) format("woff"),url(fonts/KaTeX_Main-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Main-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Main-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Main-BoldItalic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Main-Italic.woff2) format("woff2"),url(fonts/KaTeX_Main-Italic.woff) format("woff"),url(fonts/KaTeX_Main-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Main-Regular.woff2) format("woff2"),url(fonts/KaTeX_Main-Regular.woff) format("woff"),url(fonts/KaTeX_Main-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Math-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Math-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Math-BoldItalic.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Math-Italic.woff2) format("woff2"),url(fonts/KaTeX_Math-Italic.woff) format("woff"),url(fonts/KaTeX_Math-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url(fonts/KaTeX_SansSerif-Bold.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Bold.woff) format("woff"),url(fonts/KaTeX_SansSerif-Bold.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url(fonts/KaTeX_SansSerif-Italic.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Italic.woff) format("woff"),url(fonts/KaTeX_SansSerif-Italic.ttf) format("truetype")}@font-face{font-display:block;font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url(fonts/KaTeX_SansSerif-Regular.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Regular.woff) format("woff"),url(fonts/KaTeX_SansSerif-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Script-Regular.woff2) format("woff2"),url(fonts/KaTeX_Script-Regular.woff) format("woff"),url(fonts/KaTeX_Script-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size1-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size1-Regular.woff) format("woff"),url(fonts/KaTeX_Size1-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size2-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size2-Regular.woff) format("woff"),url(fonts/KaTeX_Size2-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size3-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size3-Regular.woff) format("woff"),url(fonts/KaTeX_Size3-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size4-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size4-Regular.woff) format("woff"),url(fonts/KaTeX_Size4-Regular.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Typewriter-Regular.woff2) format("woff2"),url(fonts/KaTeX_Typewriter-Regular.woff) format("woff"),url(fonts/KaTeX_Typewriter-Regular.ttf) format("truetype")}.katex{font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0;text-rendering:auto}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.16.38"}.katex .katex-mathml{clip:rect(1px,1px,1px,1px);border:0;height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathboldfrak,.katex .textboldfrak{font-family:KaTeX_Fraktur;font-weight:700}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .mathsfit,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .smash{display:inline;line-height:0}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.2777777778em;margin-right:-.5555555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.1666666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.6666666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.4566666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.1466666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.7142857143em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.8571428571em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.1428571429em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.2857142857em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.4285714286em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.7142857143em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.0571428571em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.4685714286em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.9628571429em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.5542857143em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.7777777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.8888888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.1111111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.3044444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.7644444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.5833333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.7283333333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.0733333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.4861111111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.4402777778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.7277777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.2893518519em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.4050925926em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.462962963em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.5208333333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.2002314815em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.4398148148em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.2410800386em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.2892960463em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.337512054em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.3857280617em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.4339440694em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.4821600771em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.5785920926em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.6943105111em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.8331726133em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.1996142719em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.2009646302em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.2411575563em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.2813504823em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.3215434084em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.3617363344em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.4019292605em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.4823151125em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.578778135em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.6945337621em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.8336012862em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex svg{fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+
+.mdedit-review-annotation {
+  border-radius: 0.2em;
+  padding: 0 0.08em;
+  transition: background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.mdedit-review-annotation--interactive { cursor: pointer; }
+
+.mdedit-review-annotation:focus-visible {
+  outline: 2px solid rgb(var(--md-primary, 5 150 105) / 0.75);
+  outline-offset: 2px;
+}
+
+.mdedit-review-annotation--comment,
+.mdedit-review-annotation--highlight {
+  background: rgba(245, 158, 11, 0.14);
+  box-shadow: inset 0 -2px 0 rgba(217, 119, 6, 0.45);
+}
+
+.mdedit-review-annotation--suggestion {
+  background: rgba(59, 130, 246, 0.12);
+  box-shadow: inset 0 -2px 0 rgba(37, 99, 235, 0.38);
+}
+
+.mdedit-review-annotation--selected {
+  background: rgba(5, 150, 105, 0.18);
+  box-shadow: inset 0 -3px 0 rgba(5, 150, 105, 0.72);
+}
+
+.mdedit-review-annotation--block {
+  display: inline-grid;
+  width: 0.72rem;
+  height: 0.72rem;
+  margin-inline-end: 0.35rem;
+  padding: 0;
+  place-items: center;
+  color: rgba(217, 119, 6, 0.88);
+  font-size: 0.58rem;
+  line-height: 1;
+  vertical-align: 0.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mdedit-review-annotation { transition: none; }
+}
+
+.jffJNApKDpVsnf6wbKxs{height:100%;overflow:auto;background:var(--wt-preview-container-background, rgb(var(--md-background, 255 255 255)/1));background-image:var(--wt-preview-container-background-image, none)}.XmLTOFZxERaaEJK6Yyir{padding:24px}.iINwXkbDPJM6a1MLDdue{max-width:8.5in;margin:0 auto;padding:.5in;border-radius:10px;box-shadow:0 6px 28px rgba(0,0,0,.08)}@media print{.jffJNApKDpVsnf6wbKxs{height:auto;overflow:visible;background:#fff !important}.XmLTOFZxERaaEJK6Yyir{padding:0 !important}.iINwXkbDPJM6a1MLDdue{max-width:none !important;margin:0 !important;padding:0 !important;border-radius:0 !important;box-shadow:none !important}}
+.mdedit-review-popover {
+  position: fixed;
+  z-index: 1400;
+  overflow: visible;
+  border: 1px solid rgb(var(--md-border, 228 228 231) / 1);
+  border-radius: 14px;
+  background: rgb(var(--md-background, 255 255 255) / 1);
+  color: rgb(var(--md-foreground, 24 24 27) / 1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+}
+
+.mdedit-review-popover button,
+.mdedit-review-popover input { font: inherit; }
+.mdedit-review-popover button { cursor: pointer; }
+
+.mdedit-review-popover__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 12px 8px;
+}
+
+.mdedit-review-popover__avatar {
+  display: grid;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 999px;
+  background: rgb(var(--md-muted, 244 244 245) / 1);
+  color: rgb(var(--md-muted-foreground, 82 82 91) / 1);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.mdedit-review-popover__avatar.small { width: 24px; height: 24px; font-size: 9px; }
+
+.mdedit-review-popover__identity { display: flex; min-width: 0; flex: 1; flex-wrap: wrap; align-items: center; gap: 4px; }
+.mdedit-review-popover__identity strong { overflow: hidden; max-width: 120px; text-overflow: ellipsis; white-space: nowrap; }
+.mdedit-review-popover__identity em { border-radius: 999px; background: rgba(139, 92, 246, 0.11); padding: 2px 6px; color: #7c3aed; font-size: 9px; font-style: normal; font-weight: 750; text-transform: uppercase; }
+.mdedit-review-popover__identity small { width: 100%; color: rgb(var(--md-muted-foreground, 113 113 122) / 1); font-size: 10px; }
+
+.mdedit-review-popover__actions { display: flex; align-items: center; gap: 2px; }
+.mdedit-review-popover__actions > button,
+.mdedit-review-popover__more > button {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: rgb(var(--md-muted-foreground, 82 82 91) / 1);
+  font-size: 16px;
+}
+.mdedit-review-popover__actions button:hover { background: rgb(var(--md-muted, 244 244 245) / 1); color: inherit; }
+.mdedit-review-popover__more { position: relative; }
+.mdedit-review-popover__menu { position: absolute; top: 31px; right: 0; z-index: 2; display: grid; min-width: 132px; padding: 5px; border: 1px solid rgb(var(--md-border, 228 228 231) / 1); border-radius: 9px; background: rgb(var(--md-background, 255 255 255) / 1); box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+.mdedit-review-popover__menu button { border: 0; border-radius: 6px; background: transparent; padding: 7px 9px; color: inherit; text-align: left; }
+.mdedit-review-popover__menu button:hover { background: rgb(var(--md-muted, 244 244 245) / 1); }
+.mdedit-review-popover__menu .danger { color: #dc2626; }
+
+.mdedit-review-popover__body { padding: 2px 12px 12px; }
+.mdedit-review-popover__body p { margin: 0; line-height: 1.55; }
+.mdedit-review-popover__diff { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px !important; }
+.mdedit-review-popover__diff del { color: #b91c1c; }
+.mdedit-review-popover__diff ins { color: #047857; font-weight: 650; text-decoration: none; }
+.mdedit-review-popover__secondary { margin-top: 7px; border: 0; background: transparent; padding: 0; color: rgb(var(--md-muted-foreground, 82 82 91) / 1); font-size: 11px; }
+.mdedit-review-popover__diagnostic { margin-top: 6px !important; color: #b45309; font-size: 11px; }
+
+.mdedit-review-popover__replies { display: grid; gap: 10px; border-top: 1px solid rgb(var(--md-border, 228 228 231) / 1); padding: 10px 12px; }
+.mdedit-review-popover__reply { display: flex; align-items: flex-start; gap: 8px; }
+.mdedit-review-popover__reply > span:nth-child(2) { min-width: 0; flex: 1; }
+.mdedit-review-popover__reply strong { margin-right: 6px; font-size: 11px; }
+.mdedit-review-popover__reply small { color: rgb(var(--md-muted-foreground, 113 113 122) / 1); font-size: 9px; }
+.mdedit-review-popover__reply p { margin: 2px 0 0; line-height: 1.45; }
+.mdedit-review-popover__reply > button { border: 0; background: transparent; color: rgb(var(--md-muted-foreground, 113 113 122) / 1); font-size: 9px; }
+
+.mdedit-review-popover__composer { display: flex; align-items: center; gap: 6px; border-top: 1px solid rgb(var(--md-border, 228 228 231) / 1); padding: 9px 12px; }
+.mdedit-review-popover__composer input { min-width: 0; flex: 1; border: 1px solid rgb(var(--md-border, 228 228 231) / 1); border-radius: 999px; background: transparent; padding: 7px 10px; color: inherit; outline: none; }
+.mdedit-review-popover__composer input:focus { border-color: rgb(var(--md-primary, 5 150 105) / .55); box-shadow: 0 0 0 2px rgb(var(--md-primary, 5 150 105) / .12); }
+.mdedit-review-popover__composer button { border: 0; background: transparent; color: rgb(var(--md-primary, 5 150 105) / 1); }
+.mdedit-review-popover__closed { margin: 0; border-top: 1px solid rgb(var(--md-border, 228 228 231) / 1); padding: 9px 12px; color: rgb(var(--md-muted-foreground, 113 113 122) / 1); font-size: 11px; }
+
+/* This file is generated. Do not edit directly. */
+
+:root {
+  --md-primary-50: 249 250 251;
+  --md-primary-100: 243 244 246;
+  --md-primary-200: 229 231 235;
+  --md-primary-300: 209 213 219;
+  --md-primary-400: 156 163 175;
+  --md-primary-500: 107 114 128;
+  --md-primary-600: 17 17 17;
+  --md-primary-700: 10 10 10;
+  --md-primary-800: 5 5 5;
+  --md-primary-900: 0 0 0;
+  --md-primary-950: 0 0 0;
+  --md-accent-50: 236 253 245;
+  --md-accent-100: 209 250 229;
+  --md-accent-200: 167 243 208;
+  --md-accent-300: 110 231 183;
+  --md-accent-400: 52 211 153;
+  --md-accent-500: 16 185 129;
+  --md-accent-600: 5 150 105;
+  --md-accent-700: 4 120 87;
+  --md-accent-800: 6 95 70;
+  --md-accent-900: 6 78 59;
+  --md-surface-50: 250 250 250;
+  --md-surface-100: 245 245 245;
+  --md-surface-200: 229 229 229;
+  --md-surface-300: 212 212 212;
+  --md-surface-400: 163 163 163;
+  --md-purple-50: 250 245 255;
+  --md-purple-100: 243 232 255;
+  --md-purple-200: 233 213 255;
+  --md-purple-300: 216 180 254;
+  --md-purple-400: 192 132 252;
+  --md-purple-500: 168 85 247;
+  --md-purple-600: 147 51 234;
+  --md-purple-700: 126 34 206;
+  --md-purple-800: 107 33 168;
+  --md-purple-900: 88 28 135;
+  --md-purple-950: 59 7 100;
+  --md-blue-50: 239 246 255;
+  --md-blue-100: 219 234 254;
+  --md-blue-200: 191 219 254;
+  --md-blue-300: 147 197 253;
+  --md-blue-400: 96 165 250;
+  --md-blue-500: 59 130 246;
+  --md-blue-600: 37 99 235;
+  --md-blue-700: 29 78 216;
+  --md-blue-800: 30 64 175;
+  --md-blue-900: 30 58 138;
+  --md-orange-50: 255 247 237;
+  --md-orange-100: 255 237 213;
+  --md-orange-200: 254 215 170;
+  --md-orange-300: 253 186 116;
+  --md-orange-400: 251 146 60;
+  --md-orange-500: 249 115 22;
+  --md-orange-600: 234 88 12;
+  --md-orange-700: 194 65 12;
+  --md-orange-800: 154 52 18;
+  --md-orange-900: 124 45 18;
+  --md-background: 255 255 255;
+  --md-foreground: 17 17 17;
+  --md-card: 255 255 255;
+  --md-card-foreground: 17 17 17;
+  --md-popover: 255 255 255;
+  --md-popover-foreground: 17 17 17;
+  --md-muted: 245 245 245;
+  --md-muted-foreground: 82 82 82;
+  --md-border: 229 231 235;
+  --md-input: 229 231 235;
+  --md-ring: 17 17 17;
+  --md-primary: 17 17 17;
+  --md-primary-foreground: 255 255 255;
+  --md-accent: 16 185 129;
+  --md-accent-foreground: 2 44 34;
+  --md-accent-subtle: 6 78 59;
+  --md-destructive: 220 38 38;
+  --md-destructive-foreground: 255 255 255;
+  --md-destructive-subtle: 185 28 28;
+  --md-success: 34 197 94;
+  --md-success-foreground: 22 101 52;
+  --md-warning: 245 158 11;
+  --md-warning-foreground: 146 64 14;
+  --md-info: 59 130 246;
+  --md-info-foreground: 29 78 216;
+  --md-diff-add: 16 185 129;
+  --md-diff-add-foreground: 4 120 87;
+  --md-diff-remove: 244 63 94;
+  --md-diff-remove-foreground: 190 18 60;
+  --md-ai: 139 92 246;
+  --md-ai-foreground: 109 40 217;
+  --md-radius-sm: 0.5rem;
+  --md-radius-md: 0.75rem;
+  --md-radius-lg: 1rem;
+  --md-radius-xl: 1.25rem;
+  --md-radius-2xl: 1.5rem;
+  --md-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --md-shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --md-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+:root[data-theme="dark"] {
+  --md-background: 10 10 10;
+  --md-foreground: 229 229 229;
+  --md-card: 17 17 17;
+  --md-card-foreground: 229 229 229;
+  --md-popover: 17 17 17;
+  --md-popover-foreground: 229 229 229;
+  --md-muted: 23 23 23;
+  --md-muted-foreground: 163 163 163;
+  --md-border: 38 38 38;
+  --md-input: 38 38 38;
+  --md-ring: 163 163 163;
+  --md-primary: 229 229 229;
+  --md-primary-foreground: 10 10 10;
+  --md-accent: 52 211 153;
+  --md-accent-foreground: 5 46 22;
+  --md-accent-subtle: 110 231 183;
+  --md-destructive: 248 113 113;
+  --md-destructive-foreground: 10 10 10;
+  --md-destructive-subtle: 252 165 165;
+  --md-success: 34 197 94;
+  --md-success-foreground: 74 222 128;
+  --md-warning: 245 158 11;
+  --md-warning-foreground: 251 191 36;
+  --md-info: 59 130 246;
+  --md-info-foreground: 96 165 250;
+  --md-diff-add: 16 185 129;
+  --md-diff-add-foreground: 52 211 153;
+  --md-diff-remove: 244 63 94;
+  --md-diff-remove-foreground: 251 113 133;
+  --md-ai: 139 92 246;
+  --md-ai-foreground: 167 139 250;
+}
+
+
+.mdedit-markdown {
+  box-sizing: border-box;
+  /* Typography using theme variables */
+  line-height: var(--wt-preview-content-line-height, 1.8);
+  font-family: var(--wt-preview-content-font-family, 'Charter', serif);
+  width: 100%;
+  /* Cap the reading measure: unbounded lines in a wide pane run 90+ characters.
+     Themes can widen or narrow it; 46rem keeps body text near 65-75ch. */
+  max-width: var(--wt-preview-content-max-width, 46rem);
+  margin-inline: auto;
+  font-size: var(--wt-preview-content-font-size, 16px);
+  color: var(--wt-preview-content-color, rgb(var(--md-foreground, 17 17 17) / 1));
+
+  /* Layout using theme variables */
+  padding: var(--wt-preview-content-padding, 1.25rem 1.5rem);
+  text-align: var(--wt-preview-content-text-align, start);
+
+  /* Background using theme variables. The shorthand alone must own this:
+     themes ship gradients here, and a later `background-image` declaration
+     would overwrite the shorthand's image slot and erase them. */
+  background: var(--wt-preview-content-background, transparent);
+  border-radius: var(--wt-preview-content-border-radius, 8px);
+  box-shadow: var(--wt-preview-content-box-shadow, none);
+  border: var(--wt-preview-content-border, none);
+}
+
+/* Headings using theme variables.
+   Weight and tracking come from the theme; size carries the hierarchy
+   (ratio ~1.25). Rhythm and leading are theme-tunable so parity themes can
+   match their target exactly. */
+.mdedit-markdown :is(h1, h2, h3, h4, h5, h6) {
+  margin: var(--wt-preview-heading-margin, 2.5em 0 1em 0);
+  font-weight: var(--wt-preview-headings-font-weight, 600);
+  line-height: var(--wt-preview-headings-line-height, 1.3);
+  color: var(--wt-preview-headings-color, rgb(var(--md-foreground, 17 17 17) / 1));
+  letter-spacing: var(--wt-preview-headings-letter-spacing, -0.01em);
+  font-family: var(--wt-preview-headings-font-family, 'Charter', serif);
+}
+
+.mdedit-markdown :is(h1, h2, h3, h4, h5, h6):first-child {
+  margin-top: 0;
+}
+
+.mdedit-markdown :is(h1, h2) {
+  border-bottom: var(--wt-preview-heading-divider, none);
+  padding-bottom: var(--wt-preview-heading-divider-padding, 0);
+}
+
+/* No per-level letter-spacing: the theme's tracking applies to every level
+   (Typewriter's wide 0.08em must not snap to tight tracking on h1/h2). */
+.mdedit-markdown h1 {
+  font-size: var(--wt-preview-h1-font-size, 2.2rem);
+}
+
+.mdedit-markdown h2 {
+  font-size: var(--wt-preview-h2-font-size, 1.75rem);
+}
+
+.mdedit-markdown h3 {
+  font-size: var(--wt-preview-h3-font-size, 1.4rem);
+}
+
+.mdedit-markdown h4 {
+  font-size: var(--wt-preview-h4-font-size, 1.15rem);
+}
+
+.mdedit-markdown h5 {
+  font-size: var(--wt-preview-h5-font-size, 1rem);
+}
+
+.mdedit-markdown h6 {
+  opacity: 0.85;
+  text-transform: var(--wt-preview-h6-text-transform, uppercase);
+  letter-spacing: var(--wt-preview-h6-letter-spacing, 0.05em);
+  font-size: var(--wt-preview-h6-font-size, 0.85rem);
+}
+
+/* Paragraph spacing */
+.mdedit-markdown p {
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+  text-align: inherit;
+}
+
+.mdedit-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists (canonical semantics; do not style via `li` to avoid nested leakage) */
+.mdedit-markdown :is(ul, ol) {
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+  padding-inline-start: 2rem;
+  text-align: start;
+  list-style-position: outside;
+}
+
+/* In Auto documents, nest each list from the writing side of its first item.
+   Individual list items still resolve independently when a list mixes scripts. */
+.mdedit-markdown :is(ul, ol):has(> li:first-child:dir(rtl)) {
+  direction: rtl;
+}
+
+.mdedit-markdown ul {
+  list-style-type: disc;
+}
+
+.mdedit-markdown ol {
+  list-style-type: decimal;
+}
+
+.mdedit-markdown li {
+  margin: 0.25rem 0;
+  line-height: inherit;
+  text-align: start;
+}
+
+/* Loose lists (item content wrapped in <p>) keep paragraph rhythm inside items;
+   the global p:last-child rule closes each item without trailing space. */
+.mdedit-markdown li > p {
+  margin: 0 0 0.75em 0;
+}
+
+/* Nested list marker styles */
+.mdedit-markdown ul ul {
+  list-style-type: circle;
+  margin: 0.25rem 0;
+}
+
+.mdedit-markdown ul ul ul {
+  list-style-type: square;
+}
+
+.mdedit-markdown ol ol {
+  list-style-type: lower-alpha;
+  margin: 0.25rem 0;
+}
+
+.mdedit-markdown ol ol ol {
+  list-style-type: lower-roman;
+}
+
+/* Mixed nesting should preserve the child list's semantics */
+.mdedit-markdown ol ul {
+  list-style-type: disc;
+  margin: 0.25rem 0;
+}
+
+.mdedit-markdown ul ol {
+  list-style-type: decimal;
+  margin: 0.25rem 0;
+}
+
+/* Task lists (remark-gfm adds `contains-task-list` / `task-list-item`) */
+.mdedit-markdown :is(ul.contains-task-list, ol.contains-task-list) {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.mdedit-markdown li.task-list-item {
+  list-style: none;
+}
+
+.mdedit-markdown li.task-list-item > input[type='checkbox'] {
+  margin-inline-end: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Tables */
+.mdedit-markdown table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+  width: 100%;
+  border: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  border-radius: var(--wt-preview-table-border-radius, 8px);
+  box-shadow: var(--wt-preview-table-box-shadow, var(--md-shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05)));
+}
+
+/* Keep wide tables readable instead of squeezing every column into the page.
+   This follows the same self-scrolling table pattern used by GitHub Markdown. */
+@media screen {
+  .mdedit-markdown table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.mdedit-markdown :is(th, td) {
+  padding: 12px 16px;
+  text-align: start;
+  /* Cells are data, not prose: prose leading (1.75-2.1) makes wrapped cells
+     read as loosely stacked lines. */
+  line-height: 1.5;
+  border-bottom: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* The table's own border closes the grid; a border under the last row would
+   float below the rounded corner. Only the final row of the table's final
+   section — a thead's last row still needs its separator from the body. */
+.mdedit-markdown table > :last-child > tr:last-child > :is(th, td) {
+  border-bottom: none;
+}
+
+.mdedit-markdown :is(th, td):not(:last-child) {
+  border-inline-end: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+}
+
+.mdedit-markdown th {
+  background-color: rgb(var(--md-muted, 245 245 245) / 1);
+  font-weight: 600;
+  font-size: var(--wt-preview-th-font-size, 0.875rem);
+  text-transform: var(--wt-preview-th-text-transform, uppercase);
+  letter-spacing: var(--wt-preview-th-letter-spacing, 0.05em);
+}
+
+/* Code */
+.mdedit-markdown code {
+  background-color: var(--wt-preview-code-background, rgb(var(--md-muted, 245 245 245) / 1));
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: var(--wt-preview-code-font-family, 'Monaco', 'Menlo', 'Ubuntu Mono', monospace);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Inline technical tokens may be longer than the viewport. Fenced code owns
+   its own scrolling/wrapping behavior below. */
+.mdedit-markdown :not(pre) > code {
+  overflow-wrap: anywhere;
+}
+
+/* Scrollable technical blocks keep a visible, theme-colored scrollbar even
+   when the host app hides scrollbars globally: a scrolling code block or
+   table with no scrollbar has zero overflow affordance. */
+.mdedit-markdown :is(pre, table) {
+  scrollbar-width: thin;
+  scrollbar-color: var(--wt-preview-scrollbar-thumb, rgb(var(--md-muted-foreground, 82 82 82) / 0.4))
+    var(--wt-preview-scrollbar-track, transparent);
+}
+
+.mdedit-markdown :is(pre, table)::-webkit-scrollbar {
+  display: block;
+  width: var(--wt-preview-scrollbar-width, 8px);
+  height: var(--wt-preview-scrollbar-width, 8px);
+}
+
+.mdedit-markdown :is(pre, table)::-webkit-scrollbar-track {
+  background: var(--wt-preview-scrollbar-track, transparent);
+}
+
+.mdedit-markdown :is(pre, table)::-webkit-scrollbar-thumb {
+  background: var(--wt-preview-scrollbar-thumb, rgb(var(--md-muted-foreground, 82 82 82) / 0.4));
+  border-radius: 4px;
+}
+
+.mdedit-markdown :is(pre, table)::-webkit-scrollbar-thumb:hover {
+  background: var(--wt-preview-scrollbar-thumb-hover, rgb(var(--md-muted-foreground, 82 82 82) / 0.6));
+}
+
+.mdedit-markdown pre {
+  position: relative;
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  /* Themes may tint the block surface; the syntax-highlighting theme's own
+     background paints inside it otherwise. */
+  background: var(--wt-preview-pre-background, transparent);
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  direction: ltr;
+  text-align: start;
+  unicode-bidi: isolate;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.mdedit-markdown pre * {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* The outer `<pre>` is the only border in the system.
+   Prevent any nested highlighter wrappers from accidentally introducing their own. */
+.mdedit-markdown pre :where(pre, .react-syntax-highlighter) {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.mdedit-markdown pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.875em;
+  font-family: var(--wt-preview-code-font-family, 'Monaco', 'Menlo', 'Ubuntu Mono', monospace);
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+/* `react-syntax-highlighter` uses a custom root element (`PreTag="div"`). The outer `<pre>`
+   (from the Markdown renderer) is the single source of truth for border + radius. */
+
+/* Make the line-number gutter feel intentional. No opacity: the muted
+   foreground token already sits at the AA floor. */
+.mdedit-markdown pre :is(span, td).react-syntax-highlighter-line-number {
+  color: rgb(var(--md-muted-foreground, 82 82 82) / 1);
+}
+
+/* Blockquotes using theme variables */
+.mdedit-markdown blockquote {
+  margin: var(--wt-preview-blockquote-margin, 2rem 0 2rem 1rem);
+  padding: var(--wt-preview-blockquote-padding, 1.5rem 2rem 1.5rem 1.5rem);
+  border-inline-start: var(--wt-preview-blockquote-border-inline-start, var(--wt-preview-blockquote-border-left, 3px solid rgb(var(--md-border, 229 231 235) / 1)));
+  background: var(--wt-preview-blockquote-background, transparent);
+  border-radius: var(--wt-preview-blockquote-border-radius, 0 12px 12px 0);
+  position: relative;
+  box-shadow: var(--wt-preview-blockquote-box-shadow, none);
+}
+
+/* Nested quotes keep the accent but stop re-spending the full padding:
+   two levels of 1.5rem+2rem would eat half the measure. */
+.mdedit-markdown blockquote blockquote {
+  margin: 0.75em 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+}
+
+.mdedit-markdown blockquote p {
+  margin: 0;
+  font-style: var(--wt-preview-blockquote-font-style, italic);
+  color: var(--wt-preview-blockquote-color, rgb(var(--md-muted-foreground, 82 82 82) / 1));
+  line-height: inherit;
+  text-align: start;
+}
+
+.mdedit-markdown blockquote p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.mdedit-markdown blockquote > *:first-child {
+  margin-top: 0;
+}
+
+.mdedit-markdown blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Horizontal rules */
+.mdedit-markdown hr {
+  margin: var(--wt-preview-hr-margin, 2rem 0);
+  border: none;
+  height: var(--wt-preview-hr-height, 1px);
+  background: var(--wt-preview-hr-background, linear-gradient(
+    to right,
+    transparent,
+    rgb(var(--md-border, 229 231 235) / 1),
+    transparent
+  ));
+}
+
+/* Links. Underlined by default so a link survives any color-token override;
+   themes opt out via --wt-preview-link-decoration (e.g. GitHub parity). */
+.mdedit-markdown a {
+  color: var(--wt-preview-link-color, rgb(var(--md-link, 124 58 237) / 1));
+  text-decoration: var(--wt-preview-link-decoration, underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  unicode-bidi: isolate;
+  overflow-wrap: anywhere;
+}
+
+.mdedit-markdown a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+/* Images */
+.mdedit-markdown :is(img, video, svg) {
+  max-width: 100%;
+  height: auto;
+}
+
+.mdedit-markdown img {
+  border-radius: var(--wt-preview-img-border-radius, 8px);
+  margin: 1rem 0;
+}
+
+.mdedit-markdown img[alt] {
+  display: block;
+}
+
+/* Front matter header (in-app Reading only): cover above the H1, byline below it */
+.mdedit-markdown .mdedit-fm-cover {
+  margin: 0 0 1.5rem;
+}
+
+.mdedit-markdown .mdedit-fm-cover + :is(h1, div) {
+  margin-top: 0;
+}
+
+.mdedit-markdown .mdedit-fm-cover img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(70vh, 640px);
+  object-fit: contain;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+.mdedit-markdown .mdedit-fm-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  margin: -0.25rem 0 1.25rem;
+  font-size: 0.85em;
+  color: rgb(var(--md-muted-foreground, 82 82 82) / 1);
+}
+
+.mdedit-markdown .mdedit-fm-byline .mdedit-fm-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.mdedit-markdown .mdedit-fm-byline .mdedit-fm-tag {
+  padding: 0 0.45rem;
+  border: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  border-radius: 999px;
+}
+
+/* Better spacing for elements */
+.mdedit-markdown > *:first-child {
+  margin-top: 0 !important;
+}
+
+.mdedit-markdown > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Definition lists */
+.mdedit-markdown dl {
+  margin: 0 0 var(--wt-preview-block-gap, 1.25rem) 0;
+}
+
+.mdedit-markdown dt {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.mdedit-markdown dt:first-child {
+  margin-top: 0;
+}
+
+.mdedit-markdown dd {
+  margin-block: 0.25rem 1rem;
+  margin-inline: 1.5rem 0;
+}
+
+/* Emphasis and strong */
+.mdedit-markdown em {
+  font-style: italic;
+}
+
+.mdedit-markdown strong {
+  font-weight: 600;
+}
+
+/* Mark/highlight. Force a dark ink so the highlight stays readable when the
+   surrounding theme text is light (dark mode). */
+.mdedit-markdown mark {
+  background-color: rgb(var(--md-orange-200, 254 215 170) / 0.6);
+  color: rgb(23 23 23 / 1);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+}
+
+/* GFM footnotes (remark-gfm emits section[data-footnotes] with an sr-only heading) */
+.mdedit-markdown .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mdedit-markdown section[data-footnotes] {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(var(--md-border, 229 231 235) / 1);
+  font-size: 0.875em;
+  color: rgb(var(--md-muted-foreground, 82 82 82) / 1);
+}
+
+.mdedit-markdown section[data-footnotes] :is(ul, ol) {
+  padding-inline-start: 1.25rem;
+}
+
+.mdedit-markdown sup a[data-footnote-ref] {
+  text-decoration: none;
+  padding-inline: 0.125em;
+}
+
+.mdedit-markdown a[data-footnote-backref] {
+  text-decoration: none;
+}
+
+/* Better spacing after headings */
+.mdedit-markdown :is(h1, h2, h3, h4, h5, h6) + * {
+  margin-top: 0;
+}
+
+/* Keyboard focus: the ring token exists for exactly this. */
+.mdedit-markdown :is(a, button, summary, input, [tabindex]):focus-visible {
+  outline: 2px solid rgb(var(--md-ring, 59 130 246) / 1);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mdedit-markdown,
+  .mdedit-markdown * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mdedit-markdown {
+    min-width: 0;
+    padding: var(--wt-preview-mobile-content-padding, 1rem 1.25rem);
+    font-size: var(--wt-preview-mobile-content-font-size, 15px);
+    overflow-wrap: break-word;
+  }
+
+  .mdedit-markdown :is(h1, h2, h3, h4, h5, h6) {
+    margin-block: var(--wt-preview-mobile-heading-margin-block, 2em 0.75em);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .mdedit-markdown h1 {
+    font-size: var(--wt-preview-mobile-h1-font-size, 1.95em);
+  }
+
+  .mdedit-markdown h2 {
+    font-size: var(--wt-preview-mobile-h2-font-size, 1.55em);
+  }
+
+  .mdedit-markdown h3 {
+    font-size: var(--wt-preview-mobile-h3-font-size, 1.3em);
+  }
+
+  .mdedit-markdown h4 {
+    font-size: var(--wt-preview-mobile-h4-font-size, 1.1em);
+  }
+
+  .mdedit-markdown h5 {
+    font-size: var(--wt-preview-mobile-h5-font-size, 1em);
+  }
+
+  .mdedit-markdown h6 {
+    font-size: var(--wt-preview-mobile-h6-font-size, 0.85em);
+  }
+
+  .mdedit-markdown :is(ul, ol) {
+    padding-inline-start: 1.5rem;
+  }
+
+  .mdedit-markdown :is(th, td) {
+    padding: 10px 12px;
+  }
+
+  .mdedit-markdown blockquote {
+    margin: var(--wt-preview-mobile-blockquote-margin, 1.5rem 0);
+    padding: var(--wt-preview-mobile-blockquote-padding, 1rem 1.125rem);
+  }
+
+  .mdedit-markdown pre {
+    margin: 0 0 1.25rem 0;
+  }
+
+  .mdedit-markdown pre code {
+    font-size: 0.8125em;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .mdedit-markdown .mdedit-code-copy-button {
+    width: 40px !important;
+    height: 40px !important;
+    opacity: 1 !important;
+  }
+
+  .mdedit-markdown .mdedit-code-block code > span:first-child {
+    box-sizing: border-box;
+    padding-inline-end: 48px;
+  }
+}
+
+</style>
+    <style>
+      html, body { margin: 0; padding: 0; background: rgb(var(--md-background)); color: rgb(var(--md-foreground)); }
+      @media print {
+        @page { margin: 0; }
+        html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; color: #111 !important; color-scheme: light; }
+        html {
+          --md-background: 255 255 255 !important;
+          --md-foreground: 17 17 17 !important;
+          --md-card: 255 255 255 !important;
+          --md-border: 229 231 235 !important;
+          --md-muted: 245 245 245 !important;
+          --md-muted-foreground: 75 85 99 !important;
+          --md-ring: 168 85 247 !important;
+        }
+        :root, :root[data-theme="dark"], :root[data-theme="light"] {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .mdedit-markdown code {
+          background: rgb(var(--md-muted)) !important;
+          color: rgb(var(--md-foreground)) !important;
+          border: 1px solid rgb(var(--md-border)) !important;
+        }
+        .mdedit-markdown pre {
+          background: rgb(var(--md-muted)) !important;
+          color: rgb(var(--md-foreground)) !important;
+          border: 1px solid rgb(var(--md-border)) !important;
+        }
+        .mdedit-markdown pre code {
+          background: transparent !important;
+          border: none !important;
+          color: inherit !important;
+        }
+        .mdedit-markdown pre > div > div:has(> code) {
+          background: rgb(var(--md-muted)) !important;
+          color: rgb(var(--md-foreground)) !important;
+        }
+        .mdedit-markdown pre code * {
+          background: transparent !important;
+          color: rgb(var(--md-foreground)) !important;
+        }
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div id="mdedit-export-root" data-theme="dark" dir="auto" style="--md-document-background: #100c08; --md-document-surface: #1c1814; --md-document-text: #d8cbb8; --md-document-heading: #ede0cc; --md-document-border: rgba(200, 170, 120, 0.07); --md-document-font-family: 'Charter', 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Georgia', serif; --md-document-font-size: 17px; --md-document-line-height: 1.9; --wt-preview-container-background: #100c08; --wt-preview-container-background-image: none; --wt-preview-content-padding: 2rem 2.5rem; --wt-preview-content-font-size: 17px; --wt-preview-content-line-height: 1.9; --wt-preview-content-font-family: 'Charter', 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Georgia', serif; --wt-preview-content-color: #d8cbb8; --wt-preview-content-text-align: start; --wt-preview-content-background: #1c1814; --wt-preview-content-background-image: none; --wt-preview-content-border-radius: 4px; --wt-preview-content-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4); --wt-preview-content-border: 1px solid rgba(200, 170, 120, 0.07); --wt-preview-headings-font-family: 'Charter', 'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Georgia', serif; --wt-preview-headings-font-weight: 500; --wt-preview-headings-letter-spacing: -0.01em; --wt-preview-headings-color: #ede0cc; --wt-preview-blockquote-border-inline-start: 3px solid #c9956a; --wt-preview-blockquote-border-left: 3px solid #c9956a; --wt-preview-blockquote-background: rgba(201, 149, 106, 0.07); --wt-preview-blockquote-border-radius: 0 6px 6px 0; --wt-preview-blockquote-box-shadow: none; --wt-preview-blockquote-padding: 1rem 1.5rem; --wt-preview-blockquote-margin: 2rem 0 2rem 0.5rem; --wt-preview-scrollbar-width: 8px; --wt-preview-scrollbar-track: rgba(200, 170, 120, 0.04); --wt-preview-scrollbar-thumb: rgba(200, 170, 120, 0.18); --wt-preview-scrollbar-thumb-hover: rgba(200, 170, 120, 0.32); --wt-preview-link-color: #c9956a; --wt-preview-code-background: rgba(201, 149, 106, 0.14); --wt-preview-pre-background: #251e16; --wt-preview-blockquote-color: #b5a68f;"><div style="height: 100%; overflow: auto; background-image: var(--wt-preview-container-background-image, none); background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: ;"><div style="padding: 0px;"><div class="react-markdown-preview"><div class="mdedit-markdown" dir="auto"><h1 dir="auto" id="passo-a-passo--ativar-o-mercado-pago-como-meio-de-pagamento" level="1">Passo a passo — Ativar o Mercado Pago como meio de pagamento</h1>
+<h2 dir="auto" id="resumo-da-situao" level="2">Resumo da situação</h2>
+<p dir="auto">A integração com o Mercado Pago (Checkout Pro) <strong>já está implementada</strong> no projeto.
+O que falta é apenas <strong>configuração de credenciais</strong>. Hoje o <code dir="ltr">.env</code> da raiz
+(<code dir="ltr">refs/RD/.env</code>) só tem as variáveis da Printful, então o backend cai no default
+<code dir="ltr">PAYMENT_DRIVER=mock</code> e usa a tela de pagamento simulada em
+<code dir="ltr">/pagamento/simulado/:orderNumber</code>.</p>
+<p dir="auto">O que já existe no código:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th dir="auto">Peça</th><th dir="auto">Onde</th></tr></thead><tbody><tr><td dir="auto">Criação da <code dir="ltr">Preference</code> (items, payer, back_urls, external_reference)</td><td dir="auto"><code dir="ltr">backend/src/modules/payments/mercado-pago.service.ts</code></td></tr><tr><td dir="auto">Seleção do driver (<code dir="ltr">mercadopago</code> vs <code dir="ltr">mock</code>)</td><td dir="auto"><code dir="ltr">PaymentsService.driver</code> / <code dir="ltr">MercadoPagoService.isConfigured</code></td></tr><tr><td dir="auto">Webhook <code dir="ltr">POST /api/payments/webhook</code> com reconsulta na API do MP</td><td dir="auto"><code dir="ltr">payments.controller.ts</code> + <code dir="ltr">PaymentsService.handleMercadoPagoWebhook</code></td></tr><tr><td dir="auto">Mapa de status MP → <code dir="ltr">PaymentStatus</code> / <code dir="ltr">OrderStatus</code>, idempotente</td><td dir="auto"><code dir="ltr">mapMpStatus</code> + <code dir="ltr">applyPaymentSnapshot</code></td></tr><tr><td dir="auto">Disparo do print job na aprovação</td><td dir="auto"><code dir="ltr">applyPaymentSnapshot</code> → <code dir="ltr">fulfillment.dispatchOrder</code></td></tr><tr><td dir="auto">Redirecionamento para o <code dir="ltr">init_point</code></td><td dir="auto"><code dir="ltr">frontend/src/pages/Checkout.tsx</code></td></tr><tr><td dir="auto">Páginas de retorno sucesso / pendente / falha</td><td dir="auto"><code dir="ltr">frontend/src/pages/PaymentResult.tsx</code> + rotas no <code dir="ltr">App.tsx</code></td></tr><tr><td dir="auto">Repasse das variáveis para o container</td><td dir="auto"><code dir="ltr">docker-compose.yml</code> (serviço <code dir="ltr">backend</code>, linhas 50-54)</td></tr></tbody></table>
+<p dir="auto">Portanto: <strong>não é preciso escrever código.</strong> Siga os passos abaixo.</p>
+<hr>
+<h2 dir="auto" id="passo-1--criar-a-aplicao-no-mercado-pago" level="2">Passo 1 — Criar a aplicação no Mercado Pago</h2>
+<ol dir="auto">
+<li dir="auto">Acesse <a href="https://www.mercadopago.com.br/developers/panel/app" target="_blank" rel="noreferrer">Mercado Pago Developers → Suas integrações</a>
+e faça login com a conta que vai receber os pagamentos.</li>
+<li dir="auto">Clique em <strong>Criar aplicação</strong>.</li>
+<li dir="auto">Preencha:
+<ul dir="auto">
+<li dir="auto"><strong>Nome</strong>: <code dir="ltr">Roupa de Domingo</code></li>
+<li dir="auto"><strong>Produto a integrar</strong>: <code dir="ltr">Pagamentos online</code> → <strong>Checkout Pro</strong></li>
+<li dir="auto"><strong>Modelo de integração</strong>: produtos/serviços próprios (não marketplace)</li>
+</ul>
+</li>
+<li dir="auto">Salve. Você cai no painel da aplicação.</li>
+</ol>
+<h2 dir="auto" id="passo-2--copiar-as-credenciais-de-teste" level="2">Passo 2 — Copiar as credenciais de teste</h2>
+<p dir="auto">No painel da aplicação, vá em <strong>Credenciais de teste</strong> e copie:</p>
+<ul dir="auto">
+<li dir="auto"><code dir="ltr">Public Key</code> → começa com <code dir="ltr">TEST-</code></li>
+<li dir="auto"><code dir="ltr">Access Token</code> → começa com <code dir="ltr">TEST-</code></li>
+</ul>
+<blockquote dir="auto">
+<p dir="auto">Use <strong>sempre</strong> as credenciais de teste primeiro. As de produção cobram de
+verdade. A troca para produção está no Passo 7.</p>
+</blockquote>
+<h2 dir="auto" id="passo-3--expor-o-backend-para-receber-o-webhook" level="2">Passo 3 — Expor o backend para receber o webhook</h2>
+<p dir="auto">O Mercado Pago não alcança <code dir="ltr">localhost</code>. Sem túnel, o pedido fica travado em
+<code dir="ltr">PENDING</code> porque a notificação nunca chega.</p>
+<p dir="auto">Em um terminal separado, deixe rodando:</p>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">ngrok http 3333</code></div></div></pre>
+<p dir="auto">Copie a URL <code dir="ltr">https://...ngrok-free.app</code> que aparecer. Ela muda a cada reinício do
+ngrok no plano gratuito — se reiniciar, atualize o <code dir="ltr">.env</code> e recrie o backend.</p>
+<blockquote dir="auto">
+<p dir="auto">Não tem ngrok? Alternativas: <code dir="ltr">cloudflared tunnel --url http://localhost:3333</code>
+ou validar o fluxo com <code dir="ltr">PAYMENT_DRIVER=mock</code> (sem Mercado Pago real).</p>
+</blockquote>
+<h2 dir="auto" id="passo-4--preencher-o-env-da-raiz" level="2">Passo 4 — Preencher o <code dir="ltr">.env</code> da raiz</h2>
+<p dir="auto">Edite <code dir="ltr">refs/RD/.env</code> (o arquivo já existe com a config da Printful) e <strong>adicione</strong>
+o bloco abaixo, preservando as linhas de <code dir="ltr">PRINT_*</code>:</p>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;"># ---------- Mercado Pago ----------
+PAYMENT_DRIVER=mercadopago
+MP_ACCESS_TOKEN=TEST-0000000000000000-000000-xxxxxxxxxxxxxxxxxxxx-000000000
+MP_PUBLIC_KEY=TEST-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+MP_USE_SANDBOX=true
+MP_NOTIFICATION_URL=https://SEU-ID.ngrok-free.app/api/payments/webhook</code></div></div></pre>
+<p dir="auto">Pontos de atenção:</p>
+<ul dir="auto">
+<li dir="auto"><code dir="ltr">PAYMENT_DRIVER=mercadopago</code> <strong>e</strong> <code dir="ltr">MP_ACCESS_TOKEN</code> não vazio: os dois são
+exigidos por <code dir="ltr">MercadoPagoService.isConfigured</code>. Se faltar um, o sistema volta
+silenciosamente para o mock (aparece um <code dir="ltr">WARN</code> no log).</li>
+<li dir="auto"><code dir="ltr">MP_USE_SANDBOX=true</code> faz o backend devolver o <code dir="ltr">sandbox_init_point</code>, que é o
+que funciona com credenciais <code dir="ltr">TEST-</code>.</li>
+<li dir="auto">O <code dir="ltr">.env</code> não é versionado. Não comite credenciais e não coloque chaves em
+<code dir="ltr">docs/keys.txt</code>.</li>
+</ul>
+<h2 dir="auto" id="passo-5--recriar-o-backend" level="2">Passo 5 — Recriar o backend</h2>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">cd refs/RD
+docker compose up -d --force-recreate backend</code></div></div></pre>
+<p dir="auto">As variáveis são lidas na subida do processo; editar o <code dir="ltr">.env</code> sem recriar o
+container não tem efeito.</p>
+<p dir="auto">Confirme que o driver virou real:</p>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">curl http://localhost:3333/api/payments/config</code></div></div></pre>
+<p dir="auto">Esperado:</p>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">{
+  "driver": "mercadopago",
+  "simulated": false,
+  "message": "Checkout Pro ativo. O cliente e redirecionado para o Mercado Pago."
+}</code></div></div></pre>
+<p dir="auto">Se vier <code dir="ltr">"driver": "mock"</code>, revise o Passo 4 e veja o log:
+<code dir="ltr">docker compose logs -f backend</code>.</p>
+<h2 dir="auto" id="passo-6--testar-a-compra-ponta-a-ponta" level="2">Passo 6 — Testar a compra ponta a ponta</h2>
+<ol dir="auto">
+<li dir="auto">
+<p dir="auto">Abra <a href="http://localhost:5273" target="_blank" rel="noreferrer">http://localhost:5273</a> e adicione um item ao carrinho.</p>
+</li>
+<li dir="auto">
+<p dir="auto">Informe o CEP (ex. <code dir="ltr">01310-100</code>) para calcular o frete.</p>
+</li>
+<li dir="auto">
+<p dir="auto">Em <code dir="ltr">/checkout</code>, preencha os dados (CPF de teste: <code dir="ltr">12345678909</code>) e clique em
+<strong>Pagar com Mercado Pago</strong>.</p>
+</li>
+<li dir="auto">
+<p dir="auto">Você deve ser levado para o domínio <code dir="ltr">mercadopago.com.br</code> (não para
+<code dir="ltr">/pagamento/simulado/...</code>).</p>
+</li>
+<li dir="auto">
+<p dir="auto">Pague com um cartão de teste, usando o <strong>nome do titular</strong> para controlar o
+resultado:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th dir="auto">Resultado desejado</th><th dir="auto">Nome do titular</th><th dir="auto">Cartão</th><th dir="auto">CVV</th><th dir="auto">Validade</th></tr></thead><tbody><tr><td dir="auto">Aprovado</td><td dir="auto"><code dir="ltr">APRO</code></td><td dir="auto">Mastercard <code dir="ltr">5031 4332 1540 6351</code></td><td dir="auto">123</td><td dir="auto">11/30</td></tr><tr><td dir="auto">Recusado</td><td dir="auto"><code dir="ltr">OTHE</code></td><td dir="auto">Visa <code dir="ltr">4235 6477 2802 5682</code></td><td dir="auto">123</td><td dir="auto">11/30</td></tr><tr><td dir="auto">Pendente</td><td dir="auto"><code dir="ltr">CONT</code></td><td dir="auto">qualquer um acima</td><td dir="auto">123</td><td dir="auto">11/30</td></tr></tbody></table>
+</li>
+<li dir="auto">
+<p dir="auto">Após aprovar, o MP redireciona para <code dir="ltr">/pagamento/sucesso?external_reference=RD-XXXXXX</code>.</p>
+</li>
+<li dir="auto">
+<p dir="auto">Verifique no terminal do ngrok que chegou um <code dir="ltr">POST /api/payments/webhook</code> com
+status 200, e confira o pedido:</p>
+</li>
+</ol>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">curl http://localhost:3333/api/payments/RD-XXXXXX/status</code></div></div></pre>
+<p dir="auto">O pedido deve estar <code dir="ltr">PAID</code> com o pagamento <code dir="ltr">APPROVED</code>, e o print job já disparado
+para a Printful (hoje em modo rascunho, porque <code dir="ltr">PRINTFUL_CONFIRM_ORDERS=false</code>).</p>
+<h2 dir="auto" id="passo-7--ir-para-produo-quando-for-cobrar-de-verdade" level="2">Passo 7 — Ir para produção (quando for cobrar de verdade)</h2>
+<ol dir="auto">
+<li dir="auto">No painel do Mercado Pago, complete a <strong>homologação</strong> da aplicação (dados da
+empresa, política de privacidade, testes obrigatórios). Sem isso as
+credenciais de produção não liberam.</li>
+<li dir="auto">Troque no <code dir="ltr">.env</code> do ambiente real (Railway — ver <code dir="ltr">docs/RAILWAY.md</code>):</li>
+</ol>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">PAYMENT_DRIVER=mercadopago
+MP_ACCESS_TOKEN=APP_USR-...
+MP_PUBLIC_KEY=APP_USR-...
+MP_USE_SANDBOX=false
+MP_NOTIFICATION_URL=https://api.seudominio.com/api/payments/webhook</code></div></div></pre>
+<ol dir="auto" start="3">
+<li dir="auto"><code dir="ltr">MP_USE_SANDBOX=false</code> passa a usar o <code dir="ltr">init_point</code> real.</li>
+<li dir="auto"><code dir="ltr">FRONTEND_URL</code> precisa ser o domínio público: ele monta as <code dir="ltr">back_urls</code> da
+preference. Com <code dir="ltr">auto_return: "approved"</code> o MP <strong>rejeita</strong> a preference se a
+URL de sucesso não for alcançável publicamente.</li>
+<li dir="auto">Cadastre a URL do webhook também em <strong>Suas integrações → Webhooks</strong>, evento
+<code dir="ltr">payment</code>, para ter reenvio e histórico de notificações no painel.</li>
+</ol>
+<hr>
+<h2 dir="auto" id="como-voltar-para-o-modo-simulado" level="2">Como voltar para o modo simulado</h2>
+<p dir="auto">Para desenvolver sem depender do MP, basta:</p>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">PAYMENT_DRIVER=mock</code></div></div></pre>
+<p dir="auto">e <code dir="ltr">docker compose up -d --force-recreate backend</code>. O checkout volta para a tela
+simulada, e você pode aprovar via API:</p>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">curl -X POST http://localhost:3333/api/payments/mock/RD-XXXXXX/approve</code></div></div></pre>
+<p dir="auto">(Os endpoints <code dir="ltr">mock/*</code> ficam bloqueados com o MP real configurado — <code dir="ltr">simulate()</code>
+lança <code dir="ltr">BadRequestException</code>.)</p>
+<hr>
+<h2 dir="auto" id="problemas-comuns" level="2">Problemas comuns</h2>
+<p dir="auto"><strong><code dir="ltr">Nao foi possivel iniciar o pagamento no Mercado Pago</code></strong> no checkout.
+Veja <code dir="ltr">docker compose logs backend</code>: o erro real da API do MP é logado. Causas
+frequentes: token inválido/expirado, <code dir="ltr">auto_return</code> com <code dir="ltr">back_urls</code> inacessível,
+ou valor de item com mais de 2 casas decimais.</p>
+<p dir="auto"><strong>Erro de certificado (<code dir="ltr">SELF_SIGNED_CERT_IN_CHAIN</code>) ao chamar a API do MP.</strong>
+Rede corporativa com TLS interceptado. Gere o bundle de CAs:</p>
+<pre dir="ltr"><div class="mdedit-code-block" style="position: relative;"><button class="mdedit-code-copy-button" type="button" title="Copy code" aria-label="Copy code" style="position: absolute; top: 8px; right: 8px; z-index: 10; opacity: 0; transition: opacity 0.2s; background-color: rgb(var(--md-foreground, 17 17 17) / 0.6); color: rgb(var(--md-background, 255 255 255) / 1); border: 1px solid rgb(var(--md-border, 229 231 235) / 0.15); border-radius: 8px; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" fill="currentColor"></path></svg></button><div style="display: block; overflow-x: auto; padding: 0.875rem 1rem; color: rgb(171, 178, 191); background: var(--wt-preview-pre-background, #282c34); margin: 0px; border-radius: 0px;"><code style="white-space: pre-wrap; padding: 0px 10px 0px 0px; background: transparent; border: none; float: left;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span></code><code dir="ltr" style="white-space: pre-wrap; padding: 0px; background: transparent; border: none;">cd refs\RD
+powershell -ExecutionPolicy Bypass -File scripts\export-corporate-ca.ps1</code></div></div></pre>
+<p dir="auto">O compose já monta <code dir="ltr">certs/corporate-ca.pem</code> em <code dir="ltr">NODE_EXTRA_CA_CERTS</code>. Depois,
+recrie o backend.</p>
+<p dir="auto"><strong>Pagamento aprovado no MP mas pedido continua <code dir="ltr">PENDING</code>.</strong>
+O webhook não chegou. Confirme que o ngrok está no ar, que <code dir="ltr">MP_NOTIFICATION_URL</code>
+tem o caminho completo <code dir="ltr">/api/payments/webhook</code> e que a URL no <code dir="ltr">.env</code> é a do túnel
+atual. Você pode forçar o reenvio pelo painel do MP em <strong>Webhooks → Notificações</strong>.</p>
+<p dir="auto"><strong>O webhook responde 200 mas <code dir="ltr">processed: false</code>.</strong>
+É o comportamento proposital para não gerar retry infinito. O motivo vai no log:
+pagamento sem <code dir="ltr">external_reference</code> correspondente, ou credencial ausente.</p>
+<p dir="auto"><strong>Redireciona para <code dir="ltr">/pagamento/simulado/...</code> mesmo com credenciais.</strong>
+<code dir="ltr">PAYMENT_DRIVER</code> ainda está <code dir="ltr">mock</code>, o token está vazio, ou o container não foi
+recriado após editar o <code dir="ltr">.env</code>.</p>
+<hr>
+<h2 dir="auto" id="referncias" level="2">Referências</h2>
+<ul dir="auto">
+<li dir="auto"><a href="https://www.mercadopago.com.br/developers/pt/docs/checkout-pro/landing" target="_blank" rel="noreferrer">Checkout Pro — Mercado Pago Developers</a></li>
+<li dir="auto"><a href="https://www.mercadopago.com.br/developers/pt/docs/your-integrations/notifications/webhooks" target="_blank" rel="noreferrer">Notificações Webhooks</a></li>
+<li dir="auto"><a href="https://www.mercadopago.com.br/developers/pt/docs/checkout-pro/additional-content/your-integrations/test/cards" target="_blank" rel="noreferrer">Cartões de teste</a></li>
+<li dir="auto">Documentação interna: <a href="../MERCADO-PAGO.md" target="_blank" rel="noreferrer"><code dir="ltr">../MERCADO-PAGO.md</code></a> e <a href="../COMO-RODAR.md" target="_blank" rel="noreferrer"><code dir="ltr">../COMO-RODAR.md</code></a></li>
+</ul>
+<blockquote dir="auto">
+<p dir="auto">Trechos da documentação pública do Mercado Pago foram reescritos para adequação
+às restrições de licenciamento de conteúdo.</p>
+</blockquote></div></div></div></div></div>
+  </body>
+</html>

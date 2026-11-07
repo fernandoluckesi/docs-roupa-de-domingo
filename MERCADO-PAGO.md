@@ -89,11 +89,29 @@ preference — o total da preference sempre fecha com `order.totalCents`.
 
 ## Webhook
 
+### Configuração no painel (feita em 04/11/2026, ambiente **Teste**)
+
+Painel: https://www.mercadopago.com.br/developers/panel/app/3162789363196236/webhooks
+
+| Campo | Valor |
+| ----- | ----- |
+| URL de teste | `https://frontend-roupa-de-domingo-production.up.railway.app/api/payments/webhook` |
+| Eventos | **Pagamentos** (`payment`). Os outros eventos são ignorados pelo backend |
+| Assinatura secreta | Gerada pelo painel. Copie para `MP_WEBHOOK_SECRET` no backend do Railway |
+
+A URL passa pelo nginx do frontend, que repassa `/api` ao backend pela rede privada.
+Para produção, repita na aba **Produção** com a mesma URL (ou com o domínio definitivo da loja) e use a
+assinatura secreta de produção.
+
+
 `POST /api/payments/webhook`
 
 O MP envia `{ "type": "payment", "data": { "id": "123456" } }` (ou `topic=payment`
 em querystring). O handler:
 
+0. Se `MP_WEBHOOK_SECRET` estiver definido, valida o header `x-signature` (HMAC-SHA256 sobre
+   `id:<data.id>;request-id:<x-request-id>;ts:<ts>;`). Assinatura inválida ou ausente → `401`.
+   Código em `src/modules/payments/mercado-pago-signature.ts`.
 1. Extrai o `paymentId`.
 2. Faz `GET https://api.mercadopago.com/v1/payments/{id}` com o access token — **nunca** confia no payload.
 3. Lê `external_reference` → localiza a `Order`.
