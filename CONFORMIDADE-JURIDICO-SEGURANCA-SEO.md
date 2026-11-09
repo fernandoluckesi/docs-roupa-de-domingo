@@ -45,7 +45,7 @@ o Roupa de Domingo tem hoje.
    | `SMTP_*` | dados do provedor |
    | `MAIL_SAC_INBOX` | caixa do SAC |
 
-5. **Contratos com operadores:** Printful e Railway, com cláusulas-padrão da ANPD para transferência internacional.
+5. **Contratos com operadores:** Railway, com cláusulas-padrão da ANPD para transferência internacional.
 6. **Ferramentas externas:** cadastrar o site no Google Search Console e enviar o `sitemap.xml`.
 
 ---
@@ -89,11 +89,11 @@ Base: Decreto 7.962/2013, art. 2º.
 - [x] Página `/privacidade`.
 - [~] Controlador e encarregado (art. 41): exibidos, mas os dados do controlador são fictícios.
 - [x] Dados por finalidade, base legal (art. 7º) e retenção. O detalhe está em [`LGPD-ROPA.md`](./LGPD-ROPA.md).
-- [x] Operadores nomeados e transferência internacional: Printful, Mercado Pago, Railway e e-mail.
+- [x] Operadores nomeados e transferência internacional: Mercado Pago, Correios, Railway e e-mail.
 - [x] Como exercer os direitos e canal do encarregado.
 - [x] `Payment.rawPayload` minimizado.
   - Ficam só status, método, parcelas, valor, datas e ids.
-  - O payload da Printful é gravado com nome, endereço, telefone e CPF mascarados.
+  - Sem parceiro de produção: os dados de entrega só saem da loja na etiqueta dos Correios.
 - [x] Retenção: pedidos por 5 anos sem vínculo após a exclusão da conta.
 
 ### Direitos do titular (art. 18), em Minha conta → Privacidade e dados
@@ -139,7 +139,7 @@ Base: Decreto 7.962/2013, art. 2º.
 - [x] Preço total, frete por CEP, subtotal, desconto e total antes de confirmar.
 - [x] Resumo e número do pedido.
 - [x] Prazo por CEP na página do produto.
-- [x] Tabela de medidas real (dados da Printful) em `/guia-de-tamanhos` e no produto.
+- [x] Tabela de medidas real (medidas das peças base) em `/guia-de-tamanhos` e no produto.
 - [x] Composição do tecido e instruções de lavagem.
 - [x] Variação de cor entre tela e impressão.
 - [x] Aviso de que a produção sob demanda soma prazo de produção e envio.
@@ -188,7 +188,7 @@ Base: Decreto 7.962/2013, art. 2º.
   | Exportação | 5/h |
   | Exclusão de conta | 3/h |
 
-- [x] CSP no site (nginx): `script-src 'self'`. As únicas exceções são o ViaCEP e o CDN de imagens da Printful.
+- [x] CSP no site (nginx): `script-src 'self'`. A única exceção é o ViaCEP.
 - [x] HSTS no nginx e redirect HTTP → HTTPS. O healthcheck do Railway fica fora do redirect.
 - [x] Cabeçalhos extras: X-Frame-Options DENY, Permissions-Policy e COOP.
 - [x] **JWT em cookie `httpOnly` + `SameSite=Lax`**, fora do `localStorage`. O token antigo é apagado.
@@ -199,7 +199,7 @@ Base: Decreto 7.962/2013, art. 2º.
 - [x] Política de senha: 8+ caracteres, letras e números, fora das mais comuns. Bloqueio de 15 minutos após 5 falhas.
 - [x] Recuperação de senha: token de uso único, guardado só como hash, válido por 1 hora. A resposta é igual exista ou não a conta.
 - [x] Verificação de e-mail no cadastro: link de 48 horas e reenvio em Minha conta.
-- [x] **2FA (TOTP)** obrigatório nas rotas de admin (`ADMIN_2FA_REQUIRED`). O segredo é cifrado e qualquer cliente pode ativar em Minha conta.
+- [x] **Código por e-mail no login de admin** (`ADMIN_LOGIN_CODE_REQUIRED`): depois da senha, um código de 6 dígitos vai para o e-mail da conta (15 min, 5 tentativas, uso único). Só a sessão aberta com o código acessa as rotas de admin. O 2FA por app autenticador foi removido em 09/11/2026.
 - [x] Swagger desligado em produção por padrão (`SWAGGER_ENABLED`).
 - [x] Trilha de auditoria completa ([AUDITORIA.md](./AUDITORIA.md)): login, senha, e-mail, 2FA, conta, consentimentos, pedidos, pagamentos, entrega, trocas, notas, SAC e toda rota `@Roles(ADMIN)`. Insert-only (trigger), retenção de 5 anos e cliente pseudonimizado.
 - [x] Mascaramento de CPF, e-mail e telefone nos logs e na auditoria (`privacy.util.ts`).
@@ -259,7 +259,7 @@ Base: Decreto 7.962/2013, art. 2º.
   - O campo `INVOICE_APPROX_TAX_PERCENT` atende a Lei 12.741 (tributos aproximados) quando a contabilidade informar o percentual.
 - [ ] Registro contábil das vendas: com a contabilidade.
 - [x] Guarda de documentos fiscais por 5 anos: pedidos e notas não são apagados, só desvinculados na exclusão da conta.
-- [ ] Contrato com a Printful como operador LGPD, com transferência internacional (ação jurídica).
+- [x] Printful descontinuada (09/11/2026): produção e envio próprios; sem transferência internacional para produção.
 - [x] Definição do importador: o consumidor pessoa física é o importador nas remessas do exterior, informado antes da compra no produto e em `/entrega`.
 
 ---

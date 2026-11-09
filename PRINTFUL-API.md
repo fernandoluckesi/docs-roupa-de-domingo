@@ -1,3 +1,5 @@
+> **Descontinuado em 09/11/2026.** A integração com a Printful foi removida: a loja produz, embala e posta pelos Correios. Operação atual em [BACKOFFICE.md](BACKOFFICE.md). Este documento fica só como histórico.
+
 # Printful: API para disparar pedidos
 
 Este guia mostra como disparar pedidos da camiseta de exemplo pela API do Printful

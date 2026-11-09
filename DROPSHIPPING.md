@@ -1,3 +1,5 @@
+> **Descontinuado em 09/11/2026.** A integração com a Printful foi removida: a loja produz, embala e posta pelos Correios. Operação atual em [BACKOFFICE.md](BACKOFFICE.md). Este documento fica só como histórico.
+
 # Dropshipping de estamparia
 
 Não há estoque. Quando o pagamento é aprovado, o pedido é enviado ao parceiro de

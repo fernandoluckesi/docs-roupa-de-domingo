@@ -23,7 +23,7 @@ Serve para investigar um incidente, responder a uma reclamação ou chargeback e
 | `CUSTOMER` | cliente logado, ou a própria conta no login e no cadastro |
 | `ADMIN` | equipe; só nesse caso o e-mail é gravado (`actorEmail`) |
 | `ANONYMOUS` | requisição sem login (convidado, "esqueci a senha", login que falhou) |
-| `PROVIDER` | webhook de parceiro (Mercado Pago, estamparia) |
+| `PROVIDER` | webhook de parceiro (Mercado Pago) |
 | `SYSTEM` | rotina interna (limpeza por retenção) |
 
 ## Eventos
@@ -35,16 +35,15 @@ O alvo de todo evento de pedido é o **número do pedido** (`targetType = order`
 | Evento | Detalhes gravados |
 | --- | --- |
 | `auth.register`, `auth.register.confirmed` | versão dos termos, opt-in de marketing |
-| `auth.login.success` | se a conta tem 2FA |
-| `auth.login.failed` | motivo (`invalid_credentials`, `account_locked`, `email_not_verified`, `otp_invalid`), se a conta existe, hash do e-mail digitado |
+| `auth.login.success` | se o login passou pelo código por e-mail (admin) |
+| `auth.login.failed` | motivo (`invalid_credentials`, `account_locked`, `email_not_verified`, `login_code_invalid`), se a conta existe, hash do e-mail digitado |
 | `auth.account.locked` | tentativas e minutos de bloqueio |
 | `auth.logout`, `auth.sessions.revoked` | — |
-| `auth.code.sent`, `auth.code.failed`, `auth.code.locked` | finalidade do código, tentativas |
+| `auth.code.sent`, `auth.code.failed`, `auth.code.locked` | finalidade do código (`register`, `email-change`, `password-change`, `password-reset`, `login`), tentativas |
 | `auth.password.change_requested`, `auth.password.changed`, `auth.password.change_failed` | — |
 | `auth.password.reset_requested`, `auth.password.reset` | método (código ou link antigo) |
 | `auth.email.change_requested`, `auth.email.changed`, `auth.email.change_failed` | e-mails antigo e novo, mascarados |
 | `auth.email.verified` | — |
-| `auth.2fa.setup_started`, `auth.2fa.enabled`, `auth.2fa.disabled`, `auth.2fa.enable_failed`, `auth.2fa.disable_failed` | — |
 
 **Conta** (`ACCOUNT`)
 
@@ -67,7 +66,7 @@ O alvo de todo evento de pedido é o **número do pedido** (`targetType = order`
 | --- | --- |
 | `order.created` | itens, valores, cupom, frete, UF, versão dos termos, se é convidado |
 | `order.checkout_blocked` | antifraude: pedidos pendentes demais |
-| `order.status_changed` | `from` → `to` e a origem: `customer_cancel`, `payment`, `fulfillment` ou `return` |
+| `order.status_changed` | `from` → `to` e a origem: `customer_cancel`, `admin_cancel`, `payment`, `fulfillment` ou `return` |
 | `order.cancel_failed` | — |
 | `order.coupon_redeemed` | cupom e desconto |
 
@@ -87,10 +86,9 @@ O alvo de todo evento de pedido é o **número do pedido** (`targetType = order`
 
 | Evento | Detalhes gravados |
 | --- | --- |
-| `fulfillment.submitted` | estamparia, id do pedido nela, rascunho ou não, reenvio |
-| `fulfillment.failed` | erro, com CPF removido |
-| `fulfillment.status_changed` | `from` → `to`, código de rastreio |
-| `fulfillment.webhook.unmatched` | webhook para pedido inexistente |
+| `fulfillment.queued` | pagamento aprovado, pedido entrou na fila de produção; serviço (PAC/SEDEX) |
+| `fulfillment.status_changed` | `from` → `to` (A produzir → Em produção → Embalado → Postado → Entregue), código de rastreio, campos alterados |
+| `fulfillment.updated` | nomes dos campos de embalagem, rastreio ou nota interna que mudaram, sem os valores |
 
 **Trocas e devoluções** (`RETURN`)
 
@@ -119,6 +117,7 @@ O alvo de todo evento de pedido é o **número do pedido** (`targetType = order`
 | --- | --- |
 | `admin.<Modulo>.<acao>` (`ADMIN`) | toda rota de admin: método, rota, status HTTP, corpo mascarado |
 | `audit.retention.purged` (`SYSTEM`) | quantos registros a limpeza apagou |
+| `admin.bootstrap.created`, `admin.bootstrap.promoted`, `admin.bootstrap.confirmed` (`SYSTEM`) | conta admin criada ou promovida pelo `admin:create`; se a senha foi redefinida |
 
 ## Proteção dos dados (LGPD)
 

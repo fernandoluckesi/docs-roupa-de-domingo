@@ -31,7 +31,6 @@ e-mail enviado ao destinatário errado.
      | `JWT_SECRET` | Railway | derruba todas as sessões |
      | `DATA_ENCRYPTION_KEY` | Railway | depois rode `npm run data:encrypt -- --rotate` |
      | `MP_ACCESS_TOKEN` | painel do Mercado Pago | — |
-     | `PRINT_API_KEY` | painel da Printful | — |
      | SMTP | provedor de e-mail | — |
 
    - Conta comprometida: rode `UPDATE users SET "tokenVersion" = "tokenVersion" + 1 WHERE id = ...`. Isso revoga as sessões dela.
@@ -48,7 +47,7 @@ e-mail enviado ao destinatário errado.
    | --- | --- |
    | ANPD | dados afetados, titulares, medidas tomadas, riscos, contato do encarregado |
    | Titulares | e-mail claro sobre o que houve, quais dados, o que fizemos e o que eles devem fazer (ex.: trocar a senha) |
-   | Mercado Pago e Printful | se envolver dados deles |
+   | Mercado Pago | se envolver dados dele |
 
 5. **Erradicar e recuperar.**
    - Corrija a causa.
@@ -62,4 +61,4 @@ e-mail enviado ao destinatário errado.
 | `audit_logs` | trilha completa ([AUDITORIA.md](./AUDITORIA.md)): logins e falhas, bloqueios, trocas de senha e e-mail, ações de admin, pedidos e pagamentos. Filtre por `actorId`, `action=auth.login.failed` ou `requestId` em `GET /api/admin/audit-logs` |
 | Logs do Railway | requisições e erros, guardados 6 meses (Marco Civil, art. 15) |
 | `consent_records`, `auth_tokens`, `users.lockedUntil` | sinais de ataque a contas |
-| Painel do Mercado Pago e da Printful | movimentações fora do padrão |
+| Painel do Mercado Pago | movimentações fora do padrão |

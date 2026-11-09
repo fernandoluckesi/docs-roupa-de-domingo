@@ -16,7 +16,7 @@ não envelhecer separado dele. Revisar sempre que um campo, provedor ou finalida
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Cadastro e conta | Clientes | nome, e-mail, telefone, CPF (opcional), hash da senha | criar e manter a conta | V, execução de contrato | até a exclusão da conta | Railway (hospedagem) | `users` |
 | 2 | Endereços | Clientes | destinatário, CEP, endereço | entrega dos pedidos | V | até o cliente remover ou excluir a conta | Railway | `addresses` |
-| 3 | Pedido e entrega | Clientes e convidados | nome, e-mail, telefone, CPF, endereço, itens | vender, produzir e entregar | V | 5 anos (obrigação fiscal, art. 16, I) | Printful (EUA), Railway | `orders`, `order_items`, `fulfillments` (payload mascarado) |
+| 3 | Pedido e entrega | Clientes e convidados | nome, e-mail, telefone, CPF, endereço, itens | vender, produzir e entregar | V | 5 anos (obrigação fiscal, art. 16, I) | Correios (nome, endereço, conteúdo e valor declarado na etiqueta), Railway | `orders`, `order_items`, `fulfillments`; equipe acessa pelo backoffice (acesso auditado) |
 | 4 | Pagamento | Compradores | nome, e-mail, CPF, valor | cobrar o pedido | V | 5 anos; guardamos só status, método, parcelas, valor e ids | Mercado Pago | `payments` (payload minimizado) |
 | 5 | Nota fiscal | Compradores | nome, CPF, endereço, itens, valores | obrigação fiscal | II, obrigação legal | 5 anos | emissor de NF-e (a contratar), SEFAZ | `invoices` |
 | 6 | Trocas e devoluções | Compradores | pedido, itens, motivo | direito de arrependimento e vício (CDC) | II e V | 5 anos (prescrição do CDC, art. 27) | Correios (postagem reversa) | `return_requests` |
@@ -30,7 +30,6 @@ não envelhecer separado dele. Revisar sempre que um campo, provedor ou finalida
 
 ## Transferência internacional (art. 33)
 
-- **Printful Inc. (EUA):** necessária para executar o contrato a pedido do titular (art. 33, IX). Pendente: cláusulas-padrão contratuais da ANPD (Resolução CD/ANPD nº 19/2024) no contrato com a Printful.
 - **Railway Corporation (EUA):** hospedagem. Mesma pendência contratual.
 
 ## Medidas de segurança (art. 46)
