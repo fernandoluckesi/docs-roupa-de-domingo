@@ -117,7 +117,8 @@ O alvo de todo evento de pedido é o **número do pedido** (`targetType = order`
 | --- | --- |
 | `admin.<Modulo>.<acao>` (`ADMIN`) | toda rota de admin: método, rota, status HTTP, corpo mascarado |
 | `audit.retention.purged` (`SYSTEM`) | quantos registros a limpeza apagou |
-| `admin.bootstrap.created`, `admin.bootstrap.promoted`, `admin.bootstrap.confirmed` (`SYSTEM`) | conta admin criada ou promovida pelo `admin:create`; se a senha foi redefinida |
+| `admin.seed.created`, `admin.seed.password_reset` (`SYSTEM`) | admin do backoffice criado (ou senha redefinida) pelo `seed:admin` |
+| `admin.login.success`, `admin.login.failed`, `admin.login.code_sent`, `admin.account.locked` (`AUTH`) | login do backoffice (tabela `admin_users`): motivo da falha, tentativas, hash do e-mail digitado |
 
 ## Proteção dos dados (LGPD)
 

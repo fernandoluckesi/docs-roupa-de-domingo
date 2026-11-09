@@ -47,8 +47,9 @@ Próximo passo opcional: contrato com os Correios e a API de pré-postagem (CWS)
 
 ## Acesso
 
-- Só contas com `role = ADMIN`. Depois da senha, o login pede um código de 6 dígitos enviado ao e-mail da conta (Resend). Por isso o SMTP do backend precisa estar configurado.
-- Admin é criado ou promovido pelo script `admin:create` do backend. Em produção ele roda no deploy quando `ADMIN_EMAIL` está definido (a senha inicial vem de `ADMIN_INITIAL_PASSWORD`, apague depois).
+- A equipe fica na tabela **`admin_users`**, separada dos clientes (`users`): login próprio (`/api/admin/auth/login`), cookie próprio (`rd_admin_session`) e senha própria. Conta de cliente nunca abre o backoffice, e a sessão do backoffice não vale na loja.
+- Depois da senha, o login pede um código de 6 dígitos enviado ao e-mail do admin (Resend). Por isso o SMTP do backend precisa estar configurado.
+- Admins são criados pelo seed `seed:admin` do backend, que roda em todo deploy: com `ADMIN_EMAIL`, `ADMIN_NAME` e `ADMIN_INITIAL_PASSWORD` definidos, cria o admin se ele ainda não existir (a senha nunca fica no código). Depois do primeiro deploy, apague `ADMIN_INITIAL_PASSWORD`.
 - Toda chamada de admin fica na trilha de auditoria, inclusive as leituras, porque acessam dado pessoal. Os eventos da expedição estão em [AUDITORIA.md](AUDITORIA.md).
 
 ## API (backend)
