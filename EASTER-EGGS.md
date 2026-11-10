@@ -23,8 +23,9 @@ Toda descoberta vai para `POST /api/easter-eggs/:code/discover` e aparece em
 
 `components/easter-eggs/FakeDiscountPrank.tsx`:
 
-1. Após 30s no site (fora de carrinho, checkout, pagamento, conta e login, e com o
-   aviso de cookies já respondido), abre um modal "Você ganhou 20% de desconto!".
+1. Após 30s no site (fora de carrinho, checkout, pagamento, conta, login e das
+   rotas silenciosas de `config/quietRoutes.ts`, e com o aviso de cookies já
+   respondido), abre um modal "Você ganhou 20% de desconto!".
 2. O botão "Quero" faz o modal fugir para outro ponto da tela (hover no desktop,
    toque no celular, Enter no teclado). "Não quero" e Esc fecham.
 3. Depois de 12 fugas ou 16s, o modal fecha e aparece o snackbar
