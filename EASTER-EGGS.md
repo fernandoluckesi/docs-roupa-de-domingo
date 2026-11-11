@@ -34,9 +34,23 @@ Toda descoberta vai para `POST /api/easter-eggs/:code/discover` e aparece em
    fácil? ... ache o código secreto olhando para o teto." Após 6s troca para
    "Você olhou mesmo? haha" e some num fade de 3s. Não bloqueia cliques.
 
-Não existe código: é só a piada. Repete no máximo a cada 5 dias
-(`rd:fakeDiscountShownAt` no localStorage, categoria Preferências; sem esse
-consentimento, vale só enquanto a aba estiver aberta).
+Não existe código: é só a piada. Aparece **uma única vez por navegador**
+(`rd:fakeDiscountShown` no localStorage, categoria Essencial: só evita repetir uma
+janela já vista e não identifica ninguém). Só começa a contar os 30s depois do
+aviso de humor respondido.
+
+### Aviso de humor (entrada do site)
+
+`components/easter-eggs/HumorWarning.tsx`: na primeira visita do navegador, em
+qualquer tela menos as rotas silenciosas (`/segredo`, destino do QR Code, e
+`/tchau`), um modal avisa: "Este é um site de humor, contém sarcasmos, ofensas e
+piadas de qualidade duvidosa".
+
+- "Não sou gato gago pra ficar de "mimimi"": grava `rd:humorWarningAccepted`
+  (localStorage, Essencial) e libera o site. O banner de cookies e a pegadinha do
+  desconto esperam essa resposta.
+- "Sou pamonha mole, quero sair 😭": leva para `/tchau` (`pages/Goodbye.tsx`,
+  conteúdo provisório). Não grava nada: se a pessoa voltar, vê o aviso de novo.
 
 ### Backend também tem
 
