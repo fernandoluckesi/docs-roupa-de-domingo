@@ -1,0 +1,157 @@
+ROTEIRO - "A CAIXA QUE CAIU DO CAMINHÃO"
+Roupa de Domingo - vídeo curto para Reels/TikTok
+
+Referência: anúncio do skoora.ai em https://www.instagram.com/p/Dd0z4BCsG27/
+Objetivo: recriar o mesmo vídeo, cena por cena, trocando a marca pela Roupa de Domingo.
+
+
+============================================================
+1. FORMATO
+============================================================
+
+- Vertical 9:16, 1080x1920.
+- Duração: cerca de 14 a 15 segundos.
+- Estilo: vídeo de celular, gravado na mão por uma pessoa comum. Parece um flagra real,
+  não um comercial. Sem cortes de edição chamativos, sem efeitos, sem música de propaganda.
+- Câmera com o tremor natural da mão e foco automático de celular.
+- Luz natural de dia nublado: céu cinza, sem sol direto, cores um pouco frias.
+- Som: só o ambiente (barulho de carros e caminhões passando na rodovia e vento). No final,
+  o som do papelão sendo aberto.
+- Sem texto na tela e sem legenda durante o vídeo. A marca só aparece na própria caixa e
+  no cartão de dentro dela.
+
+
+============================================================
+2. CENÁRIO
+============================================================
+
+- Uma passarela de concreto para pedestres sobre uma rodovia larga, de várias faixas nos
+  dois sentidos, com canteiro central gramado.
+- Grade de proteção de metal cinza na beira da passarela, em primeiro plano.
+- Logo à frente da câmera há outra passarela (ou viaduto) de concreto atravessando a
+  rodovia, mais alta, e a rodovia passa por baixo dela até sumir no horizonte.
+- Carros e um caminhão na pista. Árvores sem folhas nas margens (fim de inverno).
+- O chão da passarela é asfalto cinza, com algumas folhas secas.
+
+
+============================================================
+3. A CAIXA (identidade da Roupa de Domingo)
+============================================================
+
+- Caixa de papelão pardo (kraft), de tamanho médio, mais larga do que alta, como a caixa
+  de envio de uma camiseta. As abas de cima estão fechadas, sem fita no meio.
+
+- FAIXA PRETA NAS LATERAIS:
+  - Uma faixa preta fosca dá a volta inteira na caixa, passando pelas quatro laterais,
+    como um cinto contínuo.
+  - A faixa NÃO cobre a altura toda da lateral. Ela fica no meio da altura e ocupa mais ou
+    menos metade dela.
+  - Acima e abaixo da faixa aparece o papelão pardo. Esse contraste (pardo / preto / pardo)
+    é o destaque da caixa.
+
+- LOGO EM CADA LATERAL (as quatro):
+  - Sobre a faixa preta, centralizado em cada lateral, vem o logotipo da Roupa de Domingo
+    exatamente como na logo da marca. São duas linhas alinhadas à esquerda entre si:
+    - Linha 1: "Roupa de Domingo". Letra sem serifa, extra grossa e pesada (estilo
+      Archivo Black). Só as iniciais "R" e "D" em maiúscula, o resto em minúscula. Cor
+      branca levemente acinzentada (#F4F4F5).
+    - Linha 2, logo abaixo: "ESTAMPAS SEM ANESTESIA". Tudo em maiúsculas, bem menor,
+      letra sem serifa de peso médio (estilo Space Grotesk), com bastante espaço entre as
+      letras. Cor verde-limão (#D7FF3E).
+  - O logotipo é impresso direto na faixa: plano, sem brilho, sem moldura, sem sombra.
+  - Cores de referência: faixa #0F0F10, título #F4F4F5, subtítulo #D7FF3E,
+    papelão pardo natural.
+
+- O texto precisa estar escrito exatamente assim, sem erros:
+  "Roupa de Domingo"
+  "ESTAMPAS SEM ANESTESIA"
+
+
+============================================================
+4. CENA POR CENA
+============================================================
+
+CENA 1 - 0,0s a 2,0s - A rodovia vista da passarela
+- A câmera está parada na passarela, apontada para a rodovia lá embaixo, por cima da grade
+  de metal. A grade aparece desfocada na parte de baixo do quadro.
+- Na parte de cima do quadro está a outra passarela de concreto, cortando a imagem na
+  horizontal. A rodovia segue por baixo dela até o horizonte.
+- Carros passam nos dois sentidos. Céu cinza.
+
+CENA 2 - 2,0s a 4,5s - O caminhão se aproxima
+- Um caminhão-baú vem pela pista na direção da câmera, carregado no alto com uma pilha de
+  caixas de papelão pardo iguais à caixa descrita acima.
+- A pilha de caixas é alta e passa raspando por baixo da passarela de concreto da frente.
+- A câmera continua parada, como quem só está filmando o trânsito.
+
+CENA 3 - 4,5s a 6,5s - A caixa cai na passarela
+- Quando o caminhão passa por baixo da passarela onde a pessoa está, uma das caixas do
+  topo da pilha sobe por cima da grade e cai na passarela, perto da câmera.
+- Por um instante a caixa aparece no ar, logo acima da grade, com as outras caixas da pilha
+  passando atrás dela.
+- O movimento é rápido e com cara de acidente. A câmera dá um pequeno tranco de susto.
+
+CENA 4 - 6,5s a 9,0s - A caixa no chão
+- A câmera baixa e mostra a caixa parada no asfalto da passarela, inteira, um pouco torta,
+  com a grade e o pé da mureta ao fundo.
+- A faixa preta com o logotipo da Roupa de Domingo fica bem visível na lateral virada para
+  a câmera.
+- A pessoa se aproxima devagar, curiosa.
+
+CENA 5 - 9,0s a 11,5s - Abrindo a caixa
+- Close de cima. A mão da pessoa (adulto, pele clara, um anel preto fosco no dedo
+  anelar) puxa as abas de cima e abre a caixa.
+- Ouve-se o som do papelão.
+- Ainda dá para ver a faixa preta na lateral, na borda do quadro.
+
+CENA 6 - 11,5s a 14,5s - O conteúdo
+- A caixa aberta, vista de cima. Dentro, deitado, está um cartão branco liso, do tamanho
+  do fundo da caixa, com texto preto centralizado:
+
+    Linha 1 (grande, negrito, duas linhas):
+      "Sua frase favorita,"
+      "agora estampada."
+    Linha 2 (menor, peso normal):
+      "Visite roupadedomingo.com.br"
+
+- Por baixo do cartão aparece a ponta de uma camiseta preta dobrada, com um pedaço da
+  estampa em branco à mostra, para mostrar que é uma loja de roupa.
+- A mão segura a aba da caixa, a imagem fica parada por cerca de 2 segundos e o vídeo
+  termina nesse quadro.
+
+
+============================================================
+5. O QUE NÃO PODE ACONTECER
+============================================================
+
+- Nenhuma marca, logo ou texto de outra empresa (inclusive o skoora.ai do vídeo original).
+- Nenhuma letra errada no logotipo ou no cartão. Escreva os textos exatamente como estão
+  neste roteiro.
+- A faixa preta não pode ocupar a lateral inteira: o papelão pardo tem que aparecer acima
+  e abaixo dela.
+- Sem pessoas em pânico, sem acidente de trânsito e sem carros freando. O caminhão segue
+  normalmente.
+- Sem trilha sonora, narração ou texto animado na tela.
+
+
+============================================================
+6. PROMPT RESUMIDO (em inglês, para ferramentas que funcionam melhor em inglês)
+============================================================
+
+Vertical 9:16 handheld smartphone video, 15 seconds, overcast daylight, realistic, no music,
+only traffic and wind sounds. Filmed from a concrete pedestrian footbridge over a wide
+multi-lane highway, gray metal railing blurred in the foreground, another concrete
+footbridge crossing the frame ahead, bare winter trees on the sides. A box truck drives
+toward the camera, loaded high with a stack of brown kraft cardboard boxes that barely
+clears the bridge. As it passes under the camera, one box flips over the railing and lands
+on the footbridge asphalt. The camera tilts down to the box on the ground. Every side of the
+box has a matte black band wrapped all the way around, covering only the middle half of the
+side height so brown cardboard shows above and below it. Centered on the band on each side
+is the printed wordmark, flat, no shadow: first line "Roupa de Domingo" in an extra-bold
+heavy sans-serif (Archivo Black style), off-white #F4F4F5; second line below,
+"ESTAMPAS SEM ANESTESIA", all caps, much smaller, medium-weight sans-serif with wide letter
+spacing, lime green #D7FF3E. A hand with a matte black ring opens the top flaps. Top-down
+close-up: inside is a plain white card with centered black text, "Sua frase favorita,
+agora estampada." in large bold type and "Visite roupadedomingo.com.br" smaller below,
+with the corner of a folded black t-shirt with a white print peeking out underneath. Hold
+on this frame for 2 seconds. Exact spelling of all text, no other brands or logos.
