@@ -36,6 +36,7 @@ Regras:
   - etiqueta de endereço 10×15 cm (térmica) ou A4 com 4 por folha, com o código de barras do CEP e do rastreio;
   - Declaração de Conteúdo dos Correios, para quem envia sem nota fiscal;
   - romaneio de conferência.
+- **Análise:** relatórios no formato do Google Analytics com os dados da própria loja (visitas, QR Code, redes sociais, tempo nas páginas, caminhos, cidades, funil de compra). Ver [ANALISE-DE-ACESSOS.md](ANALISE-DE-ACESSOS.md).
 
 ## Etiquetas e Correios
 
@@ -64,3 +65,4 @@ Próximo passo opcional: contrato com os Correios e a API de pré-postagem (CWS)
 | `POST /api/admin/orders/labels` | dados das etiquetas e da declaração; marca como impressas |
 | `GET /api/admin/orders/production-list?stage=` | lista de produção por SKU |
 | `GET /api/admin/shipping/sender` | remetente configurado |
+| `GET /api/admin/analytics/*` | área Análise (Resumo, Tempo real, Aquisição, Engajamento, Caminhos, Monetização, Local e tecnologia). Ver [ANALISE-DE-ACESSOS.md](ANALISE-DE-ACESSOS.md) |
